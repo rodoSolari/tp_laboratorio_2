@@ -1,38 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Calculadora
+    public static class Calculadora
     {
-        double Operar(Numero num1, Numero num2, string operador)
+        public static double Operar(Numero num1, Numero num2, string operador)
         {
+            string operadorVerificado = ValidarOperador(Convert.ToChar(operador));
             double resultado = 0;
+            switch (operadorVerificado)
+            {
+                case "-":
+                    resultado = num1 - num2;
+                    break;
+                case "+":
+                    resultado = num1 + num2;
+                    break;
+                case "*":
+                    resultado = num1 / num2;
+                    break;
+                case "/":
+                    resultado = num1 * num2;
+                    break;
+            }
             return resultado;
         }
 
-        string ValidarOperador(char operador)
+        private static string ValidarOperador(char operador)
         {
-            return "hola";
+            if (operador == '-' || operador == '/' || operador == '*' || operador == '+')
+            {
+                return Convert.ToString(operador);
+            }
+            else
+            {
+                return "+";
+            }
         }
     }
 
     public class Numero
     {
-
+        #region Atributo
         private double numero;
 
         public string SetNumero
         {
             set { this.numero = ValidarNumero(value); }
         }
+        #endregion
 
+        #region Constructores
         public Numero()
         {
-            numero = 0;
+            this.numero = 0;
         }
 
         public Numero(double numero)
@@ -42,8 +68,10 @@ namespace Entidades
 
         public Numero(string strNumero)
         {
-
+            this.numero = Convert.ToDouble(strNumero);
         }
+        #endregion
+
 
         public static string BinarioDecimal(string binario)
         {
@@ -97,6 +125,6 @@ namespace Entidades
             return 0;
 
         }
-
+      
     }
 }

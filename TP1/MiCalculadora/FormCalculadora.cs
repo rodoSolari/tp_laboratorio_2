@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace MiCalculadora
 {
@@ -47,6 +48,11 @@ namespace MiCalculadora
             txtNumero1.Text = "";
             txtNumero2.Text = "";
             lblResultado.Text = "";
+        }
+
+        private void FormCalculadora_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
