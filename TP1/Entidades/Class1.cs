@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -98,30 +99,38 @@ namespace Entidades
 
         public static double operator -(Numero n1, Numero n2)
         {
-            double resultado = 0;
+            double resultado = n1.numero - n2.numero;
+
             return resultado;
         }
 
         public static double operator *(Numero n1, Numero n2)
         {
-            double resultado = 0;
+            double resultado = n1.numero * n2.numero;
+            
             return resultado;
         }
 
         public static double operator /(Numero n1, Numero n2)
         {
-            double resultado = 0;
+            double resultado = n1.numero / n2.numero;
+
             return resultado;
         }
 
         public static double operator +(Numero n1, Numero n2)
         {
-            double resultado = 0;
+            double resultado = n1.numero + n2.numero;
+
             return resultado;
         }
 
         public static double ValidarNumero(string numero)
         {
+            double numeroVerificado;
+            if (double.TryParse(numero, out numeroVerificado)){
+                return Convert.ToDouble(numero);
+            }
             return 0;
 
         }
