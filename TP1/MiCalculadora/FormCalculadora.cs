@@ -20,7 +20,11 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
+            Numero primerNumero = new Numero(txtNumero1.Text);
+            Numero segundoNumero = new Numero(txtNumero2.Text);
+            string operador = cmbOperador.Text;
 
+            lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
