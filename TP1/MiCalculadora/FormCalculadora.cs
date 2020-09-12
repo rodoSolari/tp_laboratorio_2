@@ -23,8 +23,14 @@ namespace MiCalculadora
             Numero primerNumero = new Numero(txtNumero1.Text);
             Numero segundoNumero = new Numero(txtNumero2.Text);
             string operador = cmbOperador.Text;
-
-            lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
+            if (operador != "")
+            {
+                lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingrese un operador");
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -39,7 +45,8 @@ namespace MiCalculadora
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-
+            Numero numero = new Numero(lblResultado.Text);
+            lblResultado.Text = numero.DecimalBinario(lblResultado.Text);
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)

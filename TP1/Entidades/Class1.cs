@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,10 +26,10 @@ namespace Entidades
                     resultado = num1 + num2;
                     break;
                 case "*":
-                    resultado = num1 / num2;
+                    resultado = num1 * num2;
                     break;
                 case "/":
-                    resultado = num1 * num2;
+                    resultado = num1 / num2;
                     break;
             }
             return resultado;
@@ -74,7 +77,7 @@ namespace Entidades
         #endregion
 
 
-        public static string BinarioDecimal(string binario)
+        public string BinarioDecimal(string binario)
         {
             string resultado = "Valor invalido";
             int valorDecimal = 0;
@@ -99,26 +102,22 @@ namespace Entidades
             return resultado;
         }
 
-        public static string DecimalBinario(double numero)
+        public string DecimalBinario(double numero)
         {
-            string resultado = "Valor invalido";
-            
-            int valorBinario = Convert.ToInt32(Convert.ToString(numero),2);
-            if(valorBinario == 0)
-            {
-                return resultado;
-            }
-            else
-            {
-                resultado = Convert.ToString(valorBinario);
-            }
-
-            return resultado;
+            return Convert.ToString(numero);
         }
 
-        public static string DecimalBinario(string numero)
+        public string DecimalBinario(string numero)
         {
-            return DecimalBinario(numero);
+            string valorBinario = "Valor invalido";
+            
+            //Convierto el numero recibido en entero
+            int valor = Convert.ToInt32(numero);
+
+            //Convierto el valor entero en string con base 2
+            valorBinario = Convert.ToString(valor, 2);
+
+            return valorBinario;
         }
 
         private static bool esBinario(string binario)
