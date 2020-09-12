@@ -101,14 +101,24 @@ namespace Entidades
 
         public static string DecimalBinario(double numero)
         {
-            string resultado = "";
+            string resultado = "Valor invalido";
+            
+            int valorBinario = Convert.ToInt32(Convert.ToString(numero),2);
+            if(valorBinario == 0)
+            {
+                return resultado;
+            }
+            else
+            {
+                resultado = Convert.ToString(valorBinario);
+            }
+
             return resultado;
         }
 
         public static string DecimalBinario(string numero)
         {
-            string resultado = "";
-            return resultado;
+            return DecimalBinario(numero);
         }
 
         private static bool esBinario(string binario)
