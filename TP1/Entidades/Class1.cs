@@ -76,7 +76,26 @@ namespace Entidades
 
         public static string BinarioDecimal(string binario)
         {
-            string resultado = "";
+            string resultado = "Valor invalido";
+            int valorDecimal = 0;
+            if (esBinario(binario))
+            {
+                foreach (int i in binario)
+                {
+                    if (binario[i] == '1')
+                    {
+                        if (i == 0)
+                        {
+                            valorDecimal++;
+                        }
+                        else
+                        {
+                            valorDecimal += Convert.ToInt32(Math.Pow(2, i));
+                        }
+                    }
+                }
+                resultado = Convert.ToString(valorDecimal);
+            }
             return resultado;
         }
 
@@ -92,9 +111,21 @@ namespace Entidades
             return resultado;
         }
 
-        public static bool esBinario(string binario)
+        private static bool esBinario(string binario)
         {
-            return true;
+            bool esBinario = false;
+            foreach (char caracter in binario)
+            {
+                if(binario[caracter] != '1' || binario[caracter] != '0')
+                {
+                    break;
+                }
+                else
+                {
+                    esBinario = true;
+                }
+            }
+            return esBinario;
         }
 
         public static double operator -(Numero n1, Numero n2)
@@ -113,8 +144,15 @@ namespace Entidades
 
         public static double operator /(Numero n1, Numero n2)
         {
-            double resultado = n1.numero / n2.numero;
-
+            double resultado;
+            if (n2.numero == 0)
+            {
+                resultado = double.MinValue;
+            }
+            else
+            {
+                resultado = n1.numero / n2.numero;
+            }
             return resultado;
         }
 
