@@ -81,21 +81,23 @@ namespace Entidades
         {
             string resultado = "Valor invalido";
             int valorDecimal = 0;
+            int posicionPotencia = 0;
             if (esBinario(binario))
             {
-                foreach (int i in binario)
+                for(int caracter = binario.Length-1;caracter>=0;caracter--)
                 {
-                    if (binario[i] == '1')
+                    if (binario[caracter] == '1')
                     {
-                        if (i == 0)
+                        if (caracter == binario.Length-1)
                         {
                             valorDecimal++;
                         }
                         else
                         {
-                            valorDecimal += Convert.ToInt32(Math.Pow(2, i));
+                            valorDecimal += Convert.ToInt32(Math.Pow(2, posicionPotencia));
                         }
                     }
+                    posicionPotencia++;
                 }
                 resultado = Convert.ToString(valorDecimal);
             }
@@ -123,15 +125,17 @@ namespace Entidades
         private static bool esBinario(string binario)
         {
             bool esBinario = false;
-            foreach (char caracter in binario)
+            for(int caracter = 0;caracter<binario.Length;caracter++)
             {
-                if(binario[caracter] != '1' || binario[caracter] != '0')
+                if(binario[caracter].Equals('1') || binario[caracter].Equals('0'))
+                //if (binario[caracter] != '1' || binario[caracter] != '0')
                 {
-                    break;
+                    esBinario = true;
                 }
                 else
                 {
-                    esBinario = true;
+                    esBinario = false;
+                    break;
                 }
             }
             return esBinario;

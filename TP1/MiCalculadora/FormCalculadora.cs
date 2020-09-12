@@ -51,7 +51,8 @@ namespace MiCalculadora
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-
+            Numero numero = new Numero(lblResultado.Text);
+            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
         }
 
         private void limpiar()
