@@ -76,6 +76,7 @@ namespace Entidades
         }
         #endregion
 
+        #region Metodos
 
         public string BinarioDecimal(string binario)
         {
@@ -112,14 +113,27 @@ namespace Entidades
         public string DecimalBinario(string numero)
         {
             string valorBinario = "Valor invalido";
-            
-            //Convierto el numero recibido en entero
-            int valor = Convert.ToInt32(numero);
+            double valor = ValidarNumero(numero);
+            if (valor!=0) {
+                //Convierto el numero recibido en entero y devuelvo su valor absoluto
+                //valor = Math.Truncate(Convert.ToDouble(numero));
+                valor = Math.Abs(Convert.ToDouble(numero));
 
-            //Convierto el valor entero en string con base 2
-            valorBinario = Convert.ToString(valor, 2);
-
+                //Convierto el valor entero en string con base 2
+                valorBinario = Convert.ToString(Convert.ToInt32(valor),2);
+            }
             return valorBinario;
+        }
+
+        public static double ValidarNumero(string numero)
+        {
+            double numeroVerificado;
+            if (double.TryParse(numero, out numeroVerificado))
+            {
+                return Convert.ToDouble(numero);
+            }
+            return 0;
+
         }
 
         private static bool esBinario(string binario)
@@ -127,8 +141,7 @@ namespace Entidades
             bool esBinario = false;
             for(int caracter = 0;caracter<binario.Length;caracter++)
             {
-                if(binario[caracter].Equals('1') || binario[caracter].Equals('0'))
-                //if (binario[caracter] != '1' || binario[caracter] != '0')
+                if(binario[caracter] == '1' || binario[caracter] == '0')
                 {
                     esBinario = true;
                 }
@@ -140,6 +153,9 @@ namespace Entidades
             }
             return esBinario;
         }
+        #endregion
+
+        #region Sobrecarga de operadores
 
         public static double operator -(Numero n1, Numero n2)
         {
@@ -176,15 +192,6 @@ namespace Entidades
             return resultado;
         }
 
-        public static double ValidarNumero(string numero)
-        {
-            double numeroVerificado;
-            if (double.TryParse(numero, out numeroVerificado)){
-                return Convert.ToDouble(numero);
-            }
-            return 0;
-
-        }
-      
+        #endregion 
     }
 }

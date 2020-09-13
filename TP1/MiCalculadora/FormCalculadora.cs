@@ -20,16 +20,23 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            Numero primerNumero = new Numero(txtNumero1.Text);
-            Numero segundoNumero = new Numero(txtNumero2.Text);
-            string operador = cmbOperador.Text;
-            if (operador != "")
+            if (Numero.ValidarNumero(txtNumero1.Text) != 0 && Numero.ValidarNumero(txtNumero2.Text) != 0)
             {
-                lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
+                Numero primerNumero = new Numero(txtNumero1.Text);
+                Numero segundoNumero = new Numero(txtNumero2.Text);
+                string operador = cmbOperador.Text;
+                if (operador != "")
+                {
+                    lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingrese un operador");
+                }
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese un operador");
+                MessageBox.Show("Por favor, ingrese valores validos");
             }
         }
 
@@ -51,8 +58,15 @@ namespace MiCalculadora
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            Numero numero = new Numero(lblResultado.Text);
-            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
+            if (!string.IsNullOrEmpty(lblResultado.Text))
+            {
+                Numero numero = new Numero(lblResultado.Text);
+                lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
+            }
+            else
+            {
+                lblResultado.Text = "Valor invalido";
+            }
         }
 
         private void limpiar()
