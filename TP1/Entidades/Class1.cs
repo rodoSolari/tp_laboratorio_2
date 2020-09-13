@@ -15,23 +15,25 @@ namespace Entidades
     {
         public static double Operar(Numero num1, Numero num2, string operador)
         {
+            
             string operadorVerificado = ValidarOperador(Convert.ToChar(operador));
             double resultado = 0;
-            switch (operadorVerificado)
-            {
-                case "-":
-                    resultado = num1 - num2;
-                    break;
-                case "+":
-                    resultado = num1 + num2;
-                    break;
-                case "*":
-                    resultado = num1 * num2;
-                    break;
-                case "/":
-                    resultado = num1 / num2;
-                    break;
-            }
+        
+                switch (operadorVerificado)
+                {
+                    case "-":
+                        resultado = num1 - num2;
+                        break;
+                    case "+":
+                        resultado = num1 + num2;
+                        break;
+                    case "*":
+                        resultado = num1 * num2;
+                        break;
+                    case "/":
+                        resultado = num1 / num2;
+                        break;
+                }
             return resultado;
         }
 
@@ -107,7 +109,7 @@ namespace Entidades
 
         public string DecimalBinario(double numero)
         {
-            return Convert.ToString(numero);
+            return DecimalBinario(Convert.ToString(numero));
         }
 
         public string DecimalBinario(string numero)
@@ -116,7 +118,6 @@ namespace Entidades
             double valor = ValidarNumero(numero);
             if (valor!=0) {
                 //Convierto el numero recibido en entero y devuelvo su valor absoluto
-                //valor = Math.Truncate(Convert.ToDouble(numero));
                 valor = Math.Abs(Convert.ToDouble(numero));
 
                 //Convierto el valor entero en string con base 2
@@ -125,7 +126,7 @@ namespace Entidades
             return valorBinario;
         }
 
-        public static double ValidarNumero(string numero)
+        public double ValidarNumero(string numero)
         {
             double numeroVerificado;
             if (double.TryParse(numero, out numeroVerificado))

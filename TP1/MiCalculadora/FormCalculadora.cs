@@ -20,24 +20,22 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            if (Numero.ValidarNumero(txtNumero1.Text) != 0 && Numero.ValidarNumero(txtNumero2.Text) != 0)
+
+            Numero primerNumero = new Numero(txtNumero1.Text);
+            Numero segundoNumero = new Numero(txtNumero2.Text);
+
+            string operador = cmbOperador.Text;
+            double resultado = Calculadora.Operar(primerNumero, segundoNumero, operador);
+            if (resultado!=0)
             {
-                Numero primerNumero = new Numero(txtNumero1.Text);
-                Numero segundoNumero = new Numero(txtNumero2.Text);
-                string operador = cmbOperador.Text;
-                if (operador != "")
-                {
-                    lblResultado.Text = Convert.ToString(Calculadora.Operar(primerNumero, segundoNumero, operador));
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, ingrese un operador");
-                }
+                lblResultado.Text = Convert.ToString(resultado);
             }
             else
             {
-                MessageBox.Show("Por favor, ingrese valores validos");
+                MessageBox.Show("Por favor, ingrese un operador");
             }
+            
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -71,8 +69,9 @@ namespace MiCalculadora
 
         private void limpiar()
         {
-            txtNumero1.Text = "";
-            txtNumero2.Text = "";
+            txtNumero1.Clear();
+            txtNumero2.Clear();
+            cmbOperador.Text = "";
             lblResultado.Text = "";
         }
 
