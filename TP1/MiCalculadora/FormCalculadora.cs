@@ -71,12 +71,17 @@ namespace MiCalculadora
         private static double Operar(string numero1, string numero2, string operador)
         {
             double resultado = 0;
-            if (!string.IsNullOrEmpty(numero1) && !string.IsNullOrEmpty(numero2) && !string.IsNullOrEmpty(operador)) {
+
+            if (string.IsNullOrEmpty(operador))
+            {
+                operador = "+";
+            }   
+            if(!string.IsNullOrEmpty(numero1) || !string.IsNullOrEmpty(numero2))
+            {
                 Numero primerNumero = new Numero(numero1);
                 Numero segundoNumero = new Numero(numero2);
                 resultado = Calculadora.Operar(primerNumero, segundoNumero, operador);
             }
-
             return resultado;
         }
     }

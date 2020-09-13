@@ -17,8 +17,6 @@ namespace Entidades
         {
             string operadorVerificado;
             double resultado = 0;
-           // if (!string.IsNullOrEmpty(operador))
-           // {
                 operadorVerificado = ValidarOperador(Convert.ToChar(operador));
                 switch (operadorVerificado)
                 {
@@ -38,7 +36,6 @@ namespace Entidades
                         resultado = 0;
                         break;
                 }
-         //   }
             return resultado;
         }
 
