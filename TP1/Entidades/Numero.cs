@@ -30,7 +30,7 @@ namespace Entidades
 
         public Numero(string strNumero)
         {
-            this.SetNumero = strNumero;
+            SetNumero = strNumero;
         }
         #endregion
 
@@ -85,13 +85,13 @@ namespace Entidades
 
         public double ValidarNumero(string numero)
         {
-            double numeroVerificado = 0;
+            double resultado = 0;
+            double numeroVerificado;
             if (double.TryParse(numero, out numeroVerificado))
             {
-                numeroVerificado = Convert.ToDouble(numero);
+                resultado = numeroVerificado;
             }
-            return numeroVerificado;
-
+            return resultado;
         }
 
         private static bool esBinario(string binario)

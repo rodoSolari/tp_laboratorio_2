@@ -20,15 +20,9 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
-            if (resultado != 0)
-            {
-                lblResultado.Text = Convert.ToString(resultado);
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingrese los datos correctos para realizar la operacion");
-            }
+
+            lblResultado.Text = Convert.ToString(Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text)); 
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -63,15 +57,13 @@ namespace MiCalculadora
 
         private static double Operar(string numero1, string numero2, string operador)
         {
-            double resultado = 0;
+            double resultado;
+            
+            Numero primerNumero = new Numero(numero1);
+            Numero segundoNumero = new Numero(numero2);              
+            
+            resultado = Calculadora.Operar(primerNumero, segundoNumero, operador);
 
-            if(!string.IsNullOrEmpty(numero1) && !string.IsNullOrEmpty(numero2))
-            {
-                Numero primerNumero = new Numero(numero1);
-                Numero segundoNumero = new Numero(numero2);
-                
-                resultado = Calculadora.Operar(primerNumero, segundoNumero, operador);
-            }
             return resultado;
         }
 
