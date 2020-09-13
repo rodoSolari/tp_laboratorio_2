@@ -49,22 +49,15 @@ namespace MiCalculadora
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(lblResultado.Text))
-            {
-                Numero numero = new Numero(lblResultado.Text);
-                lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
-            }
-            else
-            {
-                lblResultado.Text = "Valor invalido";
-            }
+            Numero numero = new Numero(lblResultado.Text);
+            lblResultado.Text = numero.BinarioDecimal(lblResultado.Text);
         }
 
         private void limpiar()
         {
             txtNumero1.Clear();
             txtNumero2.Clear();
-            cmbOperador.Text = "";
+            cmbOperador.Text = " ";
             lblResultado.Text = "";
         }
 
