@@ -45,11 +45,10 @@ namespace Entidades
             {
                 return Convert.ToString(operador);
             }
-            else if(char.IsWhiteSpace(operador))
+            else
             {
                 return "+";
             }
-            return "+";
         }
     }
 }

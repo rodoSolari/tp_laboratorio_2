@@ -85,12 +85,12 @@ namespace Entidades
 
         public double ValidarNumero(string numero)
         {
-            double numeroVerificado;
+            double numeroVerificado = 0;
             if (double.TryParse(numero, out numeroVerificado))
             {
-                return Convert.ToDouble(numero);
+                numeroVerificado = Convert.ToDouble(numero);
             }
-            return 0;
+            return numeroVerificado;
 
         }
 

@@ -132,6 +132,7 @@
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(81, 31);
             this.cmbOperador.TabIndex = 2;
+            this.cmbOperador.Text = " ";
             // 
             // FormCalculadora
             // 
