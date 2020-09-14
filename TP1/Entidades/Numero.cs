@@ -41,7 +41,7 @@ namespace Entidades
             string resultado = "Valor invalido";
             int valorDecimal = 0;
             int posicionPotencia = 0;
-            if (esBinario(binario))
+            if (EsBinario(binario))
             {
                 for (int caracter = binario.Length - 1; caracter >= 0; caracter--)
                 {
@@ -94,7 +94,7 @@ namespace Entidades
             return resultado;
         }
 
-        private static bool esBinario(string binario)
+        private static bool EsBinario(string binario)
         {
             bool esBinario = false;
             for (int caracter = 0; caracter < binario.Length; caracter++)
