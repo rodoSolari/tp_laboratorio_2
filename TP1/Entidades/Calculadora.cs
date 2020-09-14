@@ -17,25 +17,29 @@ namespace Entidades
         {
             string operadorVerificado;
             double resultado = 0;
-            operadorVerificado = ValidarOperador(Convert.ToChar(operador));
-            switch (operadorVerificado)
+            //Para verificar si se ingresa un solo caracter
+            if(operador.Length<=1 && !string.IsNullOrEmpty(operador))
             {
-                case "-":
-                    resultado = num1 - num2;
-                    break;
-                case "+":
-                    resultado = num1 + num2;
-                    break;
-                case "*":
-                    resultado = num1 * num2;
-                    break;
-                case "/":
-                    resultado = num1 / num2;
-                    break;
-                default:
-                    resultado = 0;
-                    break;
-            }
+                operadorVerificado = ValidarOperador(Convert.ToChar(operador));
+                switch (operadorVerificado)
+                {
+                    case "-":
+                        resultado = num1 - num2;
+                        break;
+                    case "+":
+                        resultado = num1 + num2;
+                        break;
+                    case "*":
+                        resultado = num1 * num2;
+                        break;
+                    case "/":
+                        resultado = num1 / num2;
+                        break;
+                    default:
+                        resultado = 0;
+                        break;
+                }
+            } 
             return resultado;
         }
 

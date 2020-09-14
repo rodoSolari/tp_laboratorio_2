@@ -114,7 +114,7 @@
             // 
             this.lblResultado.AutoSize = true;
             this.lblResultado.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.Location = new System.Drawing.Point(371, 24);
+            this.lblResultado.Location = new System.Drawing.Point(361, 24);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.Size = new System.Drawing.Size(0, 23);
             this.lblResultado.TabIndex = 7;
@@ -139,7 +139,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(558, 316);
+            this.ClientSize = new System.Drawing.Size(573, 326);
             this.Controls.Add(this.cmbOperador);
             this.Controls.Add(this.lblResultado);
             this.Controls.Add(this.txtNumero2);
