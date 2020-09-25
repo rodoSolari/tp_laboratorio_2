@@ -26,18 +26,18 @@ namespace Entidades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        abstract ETamanio Tamanio { get; set; }
+        abstract ETamanio Tamanio{ get; set; }
 
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
         /// <returns></returns>
-        sealed string Mostrar()
+        public string Mostrar()
         {
-            return this;
+            return this.chasis;
         }
 
-        private static explicit operator string(Vehiculo p)
+        public static explicit operator StringBuilder(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
 
