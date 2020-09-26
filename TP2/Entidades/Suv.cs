@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Entidades
 {
     
-    public class Suv
+    public class Suv : Vehiculo
     {
         public Suv(EMarca marca, string chasis, ConsoleColor color)
-            : base(chasis, marca, color)
+            : base(marca, chasis, color)
         {
         }
         /// <summary>
