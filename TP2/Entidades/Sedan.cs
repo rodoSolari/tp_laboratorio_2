@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace Entidades
 {
-    class Sedan : Vehiculo
+    public class Sedan : Vehiculo
     {
         public enum ETipo { CuatroPuertas, CincoPuertas }
         ETipo tipo;
@@ -20,9 +20,17 @@ namespace Entidades
         /// <param name="chasis"></param>
         /// <param name="color"></param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
-            : base(chasis, marca, color)
+            : base(marca,chasis,color)
         {
             tipo = ETipo.CuatroPuertas;
+
+        }
+
+        public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
+            : base(marca, chasis, color)
+        {
+
+
         }
 
         /// <summary>
