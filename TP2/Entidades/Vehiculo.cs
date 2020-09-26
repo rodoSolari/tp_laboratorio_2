@@ -9,13 +9,13 @@ namespace Entidades
     /// <summary>
     /// La clase Vehiculo no deberá permitir que se instancien elementos de este tipo.
     /// </summary>
-    public sealed class Vehiculo
+    public class Vehiculo
     {
-        enum EMarca
+        public enum EMarca
         {
             Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
         }
-        enum ETamanio
+        public enum ETamanio
         {
             Chico, Mediano, Grande
         }
@@ -23,6 +23,11 @@ namespace Entidades
         string chasis;
         ConsoleColor color;
 
+        public Vehiculo(EMarca marca, string chasis, ConsoleColor color) {
+            this.marca = marca;
+            this.chasis = chasis;
+            this.color = color;
+        }
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
