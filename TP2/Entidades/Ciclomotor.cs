@@ -15,7 +15,7 @@ namespace Entidades
         /// <summary>
         /// Las motos son chicas
         /// </summary>
-        protected short Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {

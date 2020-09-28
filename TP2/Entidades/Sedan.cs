@@ -36,7 +36,7 @@ namespace Entidades
         /// <summary>
         /// Los automoviles son medianos
         /// </summary>
-        protected override short Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {

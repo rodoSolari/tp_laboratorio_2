@@ -16,7 +16,7 @@ namespace Entidades
         /// <summary>
         /// Las camionetas son grandes
         /// </summary>
-        protected override short Tamanio
+        protected override ETamanio Tamanio
         {
             get
             {
