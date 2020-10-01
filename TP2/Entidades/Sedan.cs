@@ -40,7 +40,7 @@ namespace Entidades
         {
             get
             {
-                return this.Tamanio;
+                return 0;
             }
         }
 

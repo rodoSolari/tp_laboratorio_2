@@ -11,8 +11,8 @@ namespace Entidades
     /// </summary>
     public sealed class Taller
     {
-        List<Vehiculo> vehiculos;
-        int espacioDisponible;
+        private List<Vehiculo> vehiculos;
+        private int espacioDisponible;
         public enum ETipo
         {
             Moto, Automovil, Camioneta, Todos
@@ -26,6 +26,7 @@ namespace Entidades
         public Taller(int espacioDisponible)
         {
             this.espacioDisponible = espacioDisponible;
+            this.vehiculos = new List<Vehiculo>();
         }
         #endregion
 
