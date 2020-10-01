@@ -20,7 +20,7 @@ namespace Entidades
         {
             get
             {
-                return 0;
+                return ETamanio.Grande;
             }
         }
 
