@@ -90,7 +90,7 @@ namespace Entidades
         {
             foreach (Vehiculo v in taller.vehiculos)
             {
-                if (v == vehiculo)
+                if (v == vehiculo || taller.vehiculos.Count == taller.espacioDisponible)
                     return taller;
             }
 
@@ -109,10 +109,10 @@ namespace Entidades
             {
                 if (v == vehiculo)
                 {
+                    taller.vehiculos.Remove(vehiculo);
                     break;
                 }
             }
-
             return taller;
         }
         #endregion
