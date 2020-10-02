@@ -39,10 +39,10 @@ namespace Entidades
         /// <returns></returns>
         public virtual string Mostrar()
         {
-            return this.chasis;
+            return (string)this;
         }
 
-        public static explicit operator StringBuilder(Vehiculo p)
+        public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();
 
@@ -51,7 +51,7 @@ namespace Entidades
             sb.AppendFormat("COLOR : {0}\r\n", p.color.ToString());
             sb.AppendLine("---------------------");
 
-            return sb;
+            return sb.ToString();
         }
 
         /// <summary>
