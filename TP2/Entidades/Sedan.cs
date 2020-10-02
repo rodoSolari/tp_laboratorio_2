@@ -10,9 +10,11 @@ namespace Entidades
 {
     public class Sedan : Vehiculo
     {
-        public enum ETipo { CuatroPuertas, CincoPuertas }
-        ETipo tipo;
 
+        ETipo tipo;
+        public enum ETipo { CuatroPuertas, CincoPuertas }
+
+        #region "Constructores"
         /// <summary>
         /// Por defecto, TIPO será Monovolumen
         /// </summary>
@@ -23,16 +25,16 @@ namespace Entidades
             : base(marca,chasis,color)
         {
             tipo = ETipo.CuatroPuertas;
-
         }
 
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo tipo)
             : base(marca, chasis, color)
         {
-
-
+            this.tipo = tipo;
         }
+        #endregion
 
+        #region "Propiedades"
         /// <summary>
         /// Los automoviles son medianos
         /// </summary>
@@ -43,7 +45,13 @@ namespace Entidades
                 return ETamanio.Mediano;
             }
         }
+        #endregion
 
+        #region "Metodos"
+        /// <summary>
+        /// Muestra los datos del vehiculo de tipo Sedan (Auto)
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -57,5 +65,6 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
     }
 }

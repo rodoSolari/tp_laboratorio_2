@@ -50,6 +50,10 @@ namespace Entidades
             return (string)this;
         }
 
+        /// <summary>
+        /// Devuelve los datos del vehiculo en un string
+        /// </summary>
+        /// <param name="p">Objeto Vehiculo para mostrar sus datos</param>
         public static explicit operator string(Vehiculo p)
         {
             StringBuilder sb = new StringBuilder();

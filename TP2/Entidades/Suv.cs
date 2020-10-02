@@ -9,10 +9,14 @@ namespace Entidades
     
     public class Suv : Vehiculo
     {
+        #region "Constructores"
         public Suv(EMarca marca, string chasis, ConsoleColor color)
             : base(marca, chasis, color)
         {
         }
+        #endregion
+
+        #region "Propiedades"
         /// <summary>
         /// Las camionetas son grandes
         /// </summary>
@@ -23,7 +27,13 @@ namespace Entidades
                 return ETamanio.Grande;
             }
         }
+        #endregion
 
+        #region "Metodos"
+        /// <summary>
+        /// Muestra los datos del vehiculo de tipo Suv (Camioneta)
+        /// </summary>
+        /// <returns></returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
@@ -36,5 +46,6 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
     }
 }
