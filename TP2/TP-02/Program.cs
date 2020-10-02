@@ -58,7 +58,7 @@ namespace TP_02_2018
             taller += c2;
 
             // Muestro solo Moto
-            Console.WriteLine(Taller.Listar(taller, Taller.ETipo.Moto));
+            Console.WriteLine(Taller.Listar(taller, Taller.ETipo.Ciclomotor));
             Console.WriteLine("<-----------PRESIONE UNA TECLA PARA CONTINUAR----------->");
             Console.ReadKey();
             Console.Clear();

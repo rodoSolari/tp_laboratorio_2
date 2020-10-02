@@ -15,7 +15,7 @@ namespace Entidades
         private int espacioDisponible;
         public enum ETipo
         {
-            Moto, Automovil, Camioneta, Todos
+            Ciclomotor, Automovil, Camioneta, Todos
         }
 
         #region "Constructores"
@@ -36,10 +36,11 @@ namespace Entidades
         /// <returns></returns>
         public override string ToString()
         {
-            return Taller.Listar(this, ETipo.Todos);
+            return Listar(this, ETipo.Todos);
         }
         #endregion
 
+        
         #region "Métodos"
 
         /// <summary>
@@ -57,16 +58,26 @@ namespace Entidades
             sb.AppendLine("");
             foreach (Vehiculo v in taller.vehiculos)
             {
+                
                 switch (tipo)
                 {
                     case ETipo.Camioneta:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Suv)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
-                    case ETipo.Moto:
-                        sb.AppendLine(v.Mostrar());
+                    case ETipo.Ciclomotor:
+                        if (v is Ciclomotor)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     case ETipo.Automovil:
-                        sb.AppendLine(v.Mostrar());
+                        if (v is Sedan)
+                        {
+                            sb.AppendLine(v.Mostrar());
+                        }
                         break;
                     default:
                         sb.AppendLine(v.Mostrar());
