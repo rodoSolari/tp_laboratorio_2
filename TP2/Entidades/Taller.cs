@@ -23,10 +23,9 @@ namespace Entidades
         {
             this.vehiculos = new List<Vehiculo>();
         }
-        public Taller(int espacioDisponible)
+        public Taller(int espacioDisponible) : this()
         {
             this.espacioDisponible = espacioDisponible;
-            this.vehiculos = new List<Vehiculo>();
         }
         #endregion
 
@@ -90,7 +89,7 @@ namespace Entidades
         {
             foreach (Vehiculo v in taller.vehiculos)
             {
-                if (v == vehiculo || taller.vehiculos.Count == taller.espacioDisponible)
+                if (v == vehiculo || taller.vehiculos.Count >= taller.espacioDisponible)
                     return taller;
             }
 
