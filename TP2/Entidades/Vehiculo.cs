@@ -25,16 +25,22 @@ namespace Entidades
             Chico, Mediano, Grande
         }
 
+        #region "Constructores"
         public Vehiculo(EMarca marca, string chasis, ConsoleColor color) {
             this.marca = marca;
             this.chasis = chasis;
             this.color = color;
         }
+        #endregion
+
+        #region "Propiedades"
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
         protected abstract ETamanio Tamanio{ get;}
+        #endregion
 
+        #region "Metodos"
         /// <summary>
         /// Publica todos los datos del Vehiculo.
         /// </summary>
@@ -55,7 +61,10 @@ namespace Entidades
 
             return sb.ToString();
         }
+        #endregion
 
+
+        #region"Operadores"
         /// <summary>
         /// Dos vehiculos son iguales si comparten el mismo chasis
         /// </summary>
@@ -66,6 +75,7 @@ namespace Entidades
         {
             return (v1.chasis == v2.chasis);
         }
+
         /// <summary>
         /// Dos vehiculos son distintos si su chasis es distinto
         /// </summary>
@@ -82,7 +92,6 @@ namespace Entidades
             return base.GetHashCode();
         }
 
-
         public override bool Equals(object obj)
         {
             bool rta = false;
@@ -91,5 +100,6 @@ namespace Entidades
             }
             return rta;
         }
+        #endregion
     }
 }
