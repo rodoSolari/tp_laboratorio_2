@@ -11,6 +11,11 @@ namespace Entidades
     /// </summary>
     public abstract class Vehiculo
     {
+
+        private EMarca marca;
+        private string chasis;
+        private ConsoleColor color;
+
         public enum EMarca
         {
             Chevrolet, Ford, Renault, Toyota, BMW, Honda, HarleyDavidson
@@ -19,9 +24,6 @@ namespace Entidades
         {
             Chico, Mediano, Grande
         }
-        EMarca marca;
-        string chasis;
-        ConsoleColor color;
 
         public Vehiculo(EMarca marca, string chasis, ConsoleColor color) {
             this.marca = marca;
