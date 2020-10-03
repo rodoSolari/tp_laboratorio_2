@@ -26,7 +26,8 @@ namespace Entidades
         }
 
         #region "Constructores"
-        public Vehiculo(EMarca marca, string chasis, ConsoleColor color) {
+        public Vehiculo(EMarca marca, string chasis, ConsoleColor color)
+        {
             this.marca = marca;
             this.chasis = chasis;
             this.color = color;
@@ -37,7 +38,7 @@ namespace Entidades
         /// <summary>
         /// ReadOnly: Retornará el tamaño
         /// </summary>
-        protected abstract ETamanio Tamanio{ get;}
+        protected abstract ETamanio Tamanio { get; }
         #endregion
 
         #region "Metodos"
@@ -99,7 +100,8 @@ namespace Entidades
         public override bool Equals(object obj)
         {
             bool rta = false;
-            if (obj is Vehiculo) {
+            if (obj is Vehiculo)
+            {
                 rta = this == (Vehiculo)obj;
             }
             return rta;

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    
     public class Suv : Vehiculo
     {
         #region "Constructores"

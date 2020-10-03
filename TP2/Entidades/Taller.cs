@@ -41,7 +41,7 @@ namespace Entidades
         }
         #endregion
 
-        
+
         #region "Métodos"
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Entidades
             sb.AppendLine("");
             foreach (Vehiculo v in taller.vehiculos)
             {
-                
+
                 switch (tipo)
                 {
                     case ETipo.Camioneta:

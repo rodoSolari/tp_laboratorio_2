@@ -9,7 +9,7 @@ namespace Entidades
     public class Ciclomotor : Vehiculo
     {
         #region "Constructores"
-        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(marca,chasis,color)
+        public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) : base(marca, chasis, color)
         {
         }
         #endregion
