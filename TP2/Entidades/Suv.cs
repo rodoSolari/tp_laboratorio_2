@@ -24,7 +24,7 @@ namespace Entidades
         {
             get
             {
-                return ETamanio.Grande;
+                return ETamanio.Mediano;
             }
         }
         #endregion
