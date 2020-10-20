@@ -1,0 +1,7 @@
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\bin\Debug\Solari.Rodolfo.2A.TP3.exe.config
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\bin\Debug\Solari.Rodolfo.2A.TP3.exe
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\bin\Debug\Solari.Rodolfo.2A.TP3.pdb
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\obj\Debug\Solari.Rodolfo.2A.TP3.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\obj\Debug\Solari.Rodolfo.2A.TP3.csproj.CoreCompileInputs.cache
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\obj\Debug\Solari.Rodolfo.2A.TP3.exe
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\Solari.Rodolfo.2A.TP3\obj\Debug\Solari.Rodolfo.2A.TP3.pdb
