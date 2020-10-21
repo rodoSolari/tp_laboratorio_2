@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClasesAbstractas
 {
-    abstract class Universitario : Persona
+    public abstract class Universitario : Persona
     {
         #region Atributos
         private int legajo;
@@ -29,7 +29,7 @@ namespace ClasesAbstractas
         #region Metodos
         protected virtual string MostrarDatos() 
         {
-            return "";
+            return base.ToString();
         }
 
         protected abstract string ParticiparEnClase();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClasesAbstractas
 {
-    abstract public class Persona
+    public abstract class Persona
     {
         #region Atributos
         string nombre;
@@ -24,7 +24,16 @@ namespace ClasesAbstractas
         #region Propiedades
         abstract public string Apellido { get; set; }
 
-        abstract public int DNI { get; set; }
+        public int DNI { 
+            get 
+            {
+                return ValidarDni(this.nacionalidad, this.dni);
+            }
+            set 
+            {
+                this.dni = ValidarDni(this.nacionalidad, value);
+            } 
+        }
 
         abstract public ENacionalidad Nacionalidad { get; set; }
 
@@ -33,7 +42,7 @@ namespace ClasesAbstractas
         abstract public string StringToDNI { set; }
         #endregion
 
-        #region Metodos
+        #region Constructores
         public Persona()
         {
 
@@ -54,20 +63,28 @@ namespace ClasesAbstractas
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         { 
         }
+        #endregion
 
-        public override string ToString()
+        #region Metodos
+        protected virtual string ToString()
         {
             return "";
         }
 
         public int ValidarDni(ENacionalidad nacionanidad, int dato)
         {
-            return 0;
+            if((nacionalidad == ENacionalidad.Argentino && dato > 9000000 && dato < 9999999) || 
+            nacionalidad == ENacionalidad.Extranjero && dato > 1 && dato < 8900000)
+            {
+                //throw new NacionalidadInvalidaException();
+            }
+            
+            return dato;
         }
 
         public int ValidarDni(ENacionalidad nacionalidad, string dato) 
         {
-            return 0;
+            return ValidarDni(nacionalidad,Convert.ToInt32(dato));
         }
 
         public string validarNombreApellido(string dato) 
