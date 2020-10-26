@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClasesAbstractas;
 
 namespace ClasesInstanciables
 {
@@ -10,7 +11,7 @@ namespace ClasesInstanciables
     {
         #region Atributos
         private List<Alumno> alumnos;
-        private EClases clase;
+        private Universidad.EClases clase;
         private Profesor instructor;
         #endregion
 
@@ -20,7 +21,7 @@ namespace ClasesInstanciables
             alumnos = new List<Alumno>();
         }
 
-        public Jornada(EClases clase, Profesor instructor)
+        public Jornada(Universidad.EClases clase, Profesor instructor)
         {
 
         }
@@ -32,7 +33,7 @@ namespace ClasesInstanciables
             get; set;
         }
 
-        private EClases Clase { get; set; }
+        private Universidad.EClases Clase { get; set; }
 
         private Profesor Instructor { get; set; }
         #endregion

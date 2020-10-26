@@ -1,0 +1,2 @@
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\ClasesAbstractas\obj\Debug\ClasesAbstractas.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\TP3\Solari.Rodolfo.2A.TP3\ClasesAbstractas\obj\Debug\ClasesAbstractas.csproj.CoreCompileInputs.cache

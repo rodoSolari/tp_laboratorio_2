@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ClasesInstanciables
 {
-    sealed class Profesor : Universitario
+    public sealed class Profesor : Universitario
     {
         #region Atributos
-        private Queue<EClases> clasesDelDia;
+        private Queue<Universidad.EClases> clasesDelDia;
         private static Random random;
         #endregion
 
@@ -54,12 +54,12 @@ namespace ClasesInstanciables
         #endregion
 
         #region Sobrecarga de operadores
-        public static bool operator ==(Profesor i, EClases clase)
+        public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
-            return (i.clasesDelDia == clase);
+            return true;
         }
 
-        public static bool operator !=(Profesor i, EClases clase)
+        public static bool operator !=(Profesor i, Universidad.EClases clase)
         {
             return !(i == clase);
         }

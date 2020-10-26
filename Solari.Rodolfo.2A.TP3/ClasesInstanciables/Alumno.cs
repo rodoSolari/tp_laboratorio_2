@@ -9,7 +9,7 @@ namespace ClasesInstanciables
 {
     public sealed class Alumno : Universitario
     {
-        private EClases claseQueToma;
+        private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
 
         public enum EEstadoCuenta
@@ -22,12 +22,12 @@ namespace ClasesInstanciables
         
         }
 
-        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma) : base(id,nombre,apellido,dni,nacionalidad)
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma) : base(id,nombre,apellido,dni,nacionalidad)
         {
             this.claseQueToma = claseQueToma;
         }
 
-        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma, EEstadoCuenta estadoCuenta) : this(id,nombre,apellido,dni,nacionalidad,claseQueToma)
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma, EEstadoCuenta estadoCuenta) : this(id,nombre,apellido,dni,nacionalidad,claseQueToma)
         {
 
         }
@@ -37,12 +37,12 @@ namespace ClasesInstanciables
             return "";
         }
 
-        public static bool operator ==(Alumno a, EClases clase)
+        public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
             return (a.claseQueToma == clase);
         }
 
-        public static bool operator !=(Alumno a,EClases clase) 
+        public static bool operator !=(Alumno a, Universidad.EClases clase) 
         {
             return !(a == clase);
         }
