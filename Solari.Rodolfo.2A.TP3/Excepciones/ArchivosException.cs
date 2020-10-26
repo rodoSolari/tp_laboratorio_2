@@ -8,5 +8,14 @@ namespace Excepciones
 {
     public class ArchivosException : Exception
     {
+        public ArchivosException() : base("Error de archivos")
+        {
+
+        }
+
+        public ArchivosException(string message) : base(message)
+        {
+
+        }
     }
 }

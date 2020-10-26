@@ -8,5 +8,14 @@ namespace Excepciones
 {
     public class NacionalidadInvalidaException : Exception
     {
+        public NacionalidadInvalidaException() : base("Error con nacionalidad invalida con respecto a su Dni")
+        {
+
+        }
+
+        public NacionalidadInvalidaException(string message) : base(message)
+        {
+
+        }
     }
 }
