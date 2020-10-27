@@ -124,7 +124,12 @@ namespace ClasesAbstractas
         /// <returns></returns>
         public string validarNombreApellido(string dato) 
         {
-            return "";
+            string respuesta = " ";
+            if (Regex.IsMatch(dato,"[^a-zA-Z]"))
+            {
+                respuesta = dato;
+            }
+            return respuesta;
         }
         #endregion
 

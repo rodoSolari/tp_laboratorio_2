@@ -13,9 +13,5 @@ namespace Excepciones
 
         }
 
-        public AlumnoRepetidoException(string message) : base(message)
-        {
-
-        }
     }
 }

@@ -13,9 +13,20 @@ namespace Excepciones
 
         }
 
+        public DniInvalidoException(Exception e)
+        {
+
+        }
+
         public DniInvalidoException(string message) : base(message)
         {
 
         }
+
+        public DniInvalidoException(string message, Exception e) : base(message,e)
+        {
+
+        }
+
     }
 }
