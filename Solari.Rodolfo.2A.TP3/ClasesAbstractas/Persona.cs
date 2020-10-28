@@ -97,8 +97,8 @@ namespace ClasesAbstractas
         }
 
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
-        { 
-
+        {
+            
         }
         #endregion
 
@@ -109,7 +109,11 @@ namespace ClasesAbstractas
         /// <returns></returns>
         public override string ToString()
         {
-            return "";
+            StringBuilder strPersona = new StringBuilder();
+            strPersona.AppendFormat("NOMBRE COMPLETO: {0}, {1}\n", this.nombre, this.apellido);
+            strPersona.AppendFormat("NACIONALIDAD: {0}\n", this.nacionalidad);
+            return strPersona.ToString();
+
         }
 
         /// <summary>

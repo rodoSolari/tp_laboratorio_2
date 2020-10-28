@@ -34,7 +34,7 @@ namespace ClasesInstanciables
 
         protected override string MostrarDatos()
         {
-            return "";
+            return "ALUMNOS:\n" + base.MostrarDatos();
         }
 
         public static bool operator ==(Alumno a, Universidad.EClases clase)
@@ -49,12 +49,12 @@ namespace ClasesInstanciables
 
         protected override string ParticiparEnClase()
         {
-            return "TOMA CLASE DE " + "";
+            return "TOMA CLASE DE " + this.claseQueToma;
         }
 
-        protected override string ToString()
+        public override string ToString()
         {
-            return "";
+            return this.MostrarDatos();
         }
     }
 }

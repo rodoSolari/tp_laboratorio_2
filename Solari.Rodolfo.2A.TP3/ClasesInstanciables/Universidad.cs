@@ -138,11 +138,23 @@ namespace ClasesInstanciables
             return !(g == a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public static bool operator !=(Universidad g, Profesor i)
         {
             return !(g == i);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator !=(Universidad g, EClases clase)
         {
             return !(g == clase);

@@ -27,27 +27,53 @@ namespace ClasesAbstractas
         #endregion
 
         #region Metodos
+
+        /// <summary>
+        /// Devuelve los datos del universitario con su numero de legajo
+        /// </summary>
+        /// <returns></returns>
         protected virtual string MostrarDatos() 
         {
-            return base.ToString();
+            return base.ToString() + "\nNUMERO LEGAJO: " + this.legajo + "\n";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected abstract string ParticiparEnClase();
 
         #endregion
 
         #region Sobrecarga de operadores
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns></returns>
         public static bool operator ==(Universitario pg1, Universitario pg2) 
         {
             return (pg1.Nacionalidad == pg2.Nacionalidad && (pg1.DNI == pg2.DNI || pg1.legajo == pg2.legajo) );
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns></returns>
         public static bool operator !=(Universitario pg1, Universitario pg2)
         {
             return !(pg1 == pg2);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             bool rta = false;
