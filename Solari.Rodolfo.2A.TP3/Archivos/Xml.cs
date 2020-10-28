@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Archivos
 {
-    public class Texto
+    public class Xml<T>
     {
-        public bool Guardar(string archivo, string datos)
+        public bool Guardar(string archivo, T datos)
         {
             return true;
         }
 
-        public bool Leer(string archivo, out string datos)
+        public bool Leer(string archivo, out T datos)
         {
             return true;
         }

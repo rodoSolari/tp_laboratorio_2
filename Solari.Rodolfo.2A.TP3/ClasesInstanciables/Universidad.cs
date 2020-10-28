@@ -105,17 +105,32 @@ namespace ClasesInstanciables
 
         public static bool operator +(Universidad g, EClases clase)
         {
-
+            bool respuesta = false;
+            if(g != clase)
+            {
+                //g.jornada.Add(new Jornada(clase,null));
+            }
+            return respuesta;
         }
 
         public static bool operator +(Universidad g, Alumno a)
         {
-
+            bool respuesta = false;
+            if(g != a)
+            {
+                g.alumnos.Add(a);
+            }
+            return respuesta;
         }
 
         public static bool operator +(Universidad g, Profesor i)
         {
-
+            bool respuesta = false;
+            if(g != i)
+            {
+                g.profesores.Add(i);
+            }
+            return respuesta;
         }
 
         public static bool operator !=(Universidad g, Alumno a)
