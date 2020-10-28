@@ -23,7 +23,8 @@ namespace ClasesInstanciables
 
         public Jornada(Universidad.EClases clase, Profesor instructor)
         {
-
+            this.clase = clase;
+            this.instructor = instructor;
         }
         #endregion
 
@@ -49,6 +50,19 @@ namespace ClasesInstanciables
             return "";
         }
 
+        #endregion
+
+        #region Sobrecarga de metodos
+        public override string ToString()
+        {
+            StringBuilder strJornada = new StringBuilder();
+            strJornada.AppendLine(this.instructor.ToString());
+            foreach(Alumno item in this.alumnos)
+            {
+                strJornada.AppendLine(item.ToString());
+            }
+            return strJornada.ToString();
+        }
         #endregion
 
         #region Sobrecarga de operadores
@@ -78,10 +92,6 @@ namespace ClasesInstanciables
                 if (j != a)
                 {
                     j.alumnos.Add(a);
-                }
-                else
-                {
-                    
                 }
             }
             return j;
