@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ClasesAbstractas;
+using Excepciones;
 
 namespace ClasesInstanciables
 {
@@ -29,11 +30,40 @@ namespace ClasesInstanciables
         #endregion
 
         #region Propiedades
-        private List<Alumno> Alumnos { get; set; }
-        private List<Profesor> Instructores { get; set; }
-        private List<Jornada> Jornadas { get; set; }
+        public List<Alumno> Alumnos { 
+            get 
+            {
+                return this.alumnos;
+            }
+            set 
+            {
+                this.alumnos = value;
+            } 
+        }
+
+        public List<Profesor> Instructores {
+            get 
+            {
+                return this.profesores;
+            }
+            set 
+            {
+                this.profesores = value;
+            } 
+        }
+        public List<Jornada> Jornadas
+        {
+            get
+            {
+                return this.jornada;
+            }
+            set
+            {
+                this.jornada = value;
+            }
+        }
      
-        private Jornada this[int i] { 
+        public Jornada this[int i] { 
             get 
             {
                 return this.jornada[i];
@@ -46,21 +76,55 @@ namespace ClasesInstanciables
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public bool Guardar()
         {
             return true;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public Universidad Leer()
         {
             return this;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="uni"></param>
+        /// <returns></returns>
         private static string MostrarDatos(Universidad uni)
         {
-            return uni.ToString();
+            StringBuilder strJornada = new StringBuilder();
+            strJornada.AppendLine("JORNADA:");
+            foreach(Jornada item in uni.jornada)
+            {
+                strJornada.AppendLine(item.ToString());
+            }
+            return strJornada.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return MostrarDatos(this);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator ==(Universidad g, Alumno a)
         {
             bool respuesta = false;
@@ -75,6 +139,12 @@ namespace ClasesInstanciables
             return respuesta;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public static bool operator ==(Universidad g, Profesor i)
         {
             bool respuesta = false;
@@ -89,50 +159,85 @@ namespace ClasesInstanciables
             return respuesta;
         }
 
-        public static bool operator ==(Universidad u, EClases clase)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
+        public static Profesor operator ==(Universidad u, EClases clase)
         {
-            bool respuesta = false;
-            foreach(EClases item in u.jornada)
+            Profesor prof = u == clase;    //Utilizo la sobrecarga de operador ==
+            if (prof == clase)
             {
-                if (item == clase)
+                return prof;
+            }
+            else
+            {
+                throw new SinProfesorException();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
+        public static Universidad operator +(Universidad g, EClases clase)
+        {
+            Jornada nuevaJornada = new Jornada(clase, g == clase); // utilizo la sobrecarga de operador ==
+            foreach(Alumno item in g.alumnos)
+            {
+                if(item == clase)
                 {
-                    respuesta = true;
-                    break;
+                    nuevaJornada += item;   //utilizo sobrecarga de operador + de jornada
                 }
             }
-            return respuesta;
+            g.jornada.Add(nuevaJornada);
+            return g;
         }
 
-        public static bool operator +(Universidad g, EClases clase)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Universidad operator +(Universidad u, Alumno a)
         {
-            bool respuesta = false;
-            if(g != clase)
+            if(u != a)
             {
-                //g.jornada.Add(new Jornada(clase,null));
+                u.alumnos.Add(a);
             }
-            return respuesta;
+            else
+            {
+                throw new AlumnoRepetidoException();
+            }
+            return u;
         }
 
-        public static bool operator +(Universidad g, Alumno a)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="u"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        public static Universidad operator +(Universidad u, Profesor i)
         {
-            bool respuesta = false;
-            if(g != a)
+            if(u != i)
             {
-                g.alumnos.Add(a);
+                u.profesores.Add(i);
             }
-            return respuesta;
+            return u;
         }
 
-        public static bool operator +(Universidad g, Profesor i)
-        {
-            bool respuesta = false;
-            if(g != i)
-            {
-                g.profesores.Add(i);
-            }
-            return respuesta;
-        }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator !=(Universidad g, Alumno a)
         {
             return !(g == a);
@@ -155,10 +260,20 @@ namespace ClasesInstanciables
         /// <param name="g"></param>
         /// <param name="clase"></param>
         /// <returns></returns>
-        public static bool operator !=(Universidad g, EClases clase)
+        public static Profesor operator !=(Universidad u, EClases clase)
         {
-            return !(g == clase);
+            Profesor prof = null;
+            foreach(Profesor item in u.profesores)
+            {
+                if(item != clase)
+                {
+                    prof = item;
+                    break;
+                }
+            }
+            return prof;
         }
+        
         #endregion
     }
 }
