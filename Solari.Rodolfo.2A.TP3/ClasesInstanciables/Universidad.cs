@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Archivos;
 using Excepciones;
 
 namespace ClasesInstanciables
@@ -79,9 +80,12 @@ namespace ClasesInstanciables
         /// 
         /// </summary>
         /// <returns></returns>
-        public bool Guardar()
+        public bool Guardar(Universidad uni)
         {
-            return true;
+            Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
+            bool escritura = ArchivoXmlUniversidad.Guardar("ArchivoXmlUniversidad", uni);
+
+            return escritura;
         }
 
         /// <summary>
@@ -90,7 +94,11 @@ namespace ClasesInstanciables
         /// <returns></returns>
         public Universidad Leer()
         {
-            return this;
+            Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
+            Universidad UniversidadLeida = new Universidad();
+            ArchivoXmlUniversidad.Leer("ArchivoXmlUniversidad",out UniversidadLeida);
+
+            return UniversidadLeida;
         }
 
         /// <summary>

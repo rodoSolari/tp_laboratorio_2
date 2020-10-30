@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Archivos;
 
 namespace ClasesInstanciables
 {
@@ -41,12 +42,17 @@ namespace ClasesInstanciables
         #region Metodos
         public bool Guardar(Jornada jordana)
         {
-            return true;
+            Texto ArchivoEscritura = new Texto();
+            bool escritura = ArchivoEscritura.Guardar("ArchivoJornada", jordana.ToString());
+            return escritura;
         }
 
         public string Leer()
         {
-            return "";
+            Texto ArchivoLectura = new Texto();
+            string datos = " ";
+            ArchivoLectura.Leer("ArchivoJornada",out datos);
+            return datos;
         }
 
         #endregion
