@@ -41,7 +41,11 @@ namespace ClasesInstanciables
         #region Metodos
         protected override string MostrarDatos()
         {
-            return base.MostrarDatos() + "\nESTADO DE LA CUENTA : " + this.estadoCuenta + this.ParticiparEnClase() + "\n";
+            StringBuilder strAlumno = new StringBuilder();
+            strAlumno.AppendLine(base.MostrarDatos());
+            strAlumno.AppendFormat("ESTADO DE LA CUENTA: {0}\n", this.estadoCuenta);
+            strAlumno.AppendLine(this.ParticiparEnClase());
+            return strAlumno.ToString();
         }
         #endregion
 

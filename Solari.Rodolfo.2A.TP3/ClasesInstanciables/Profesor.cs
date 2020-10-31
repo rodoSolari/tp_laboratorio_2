@@ -18,8 +18,7 @@ namespace ClasesInstanciables
         #region Constructor
         public Profesor()
         {
-            /*clasesDelDia = new Queue<Universidad.EClases>();
-            _randomClases();*/
+
         }
 
         static Profesor()
@@ -32,13 +31,13 @@ namespace ClasesInstanciables
             this.clasesDelDia = new Queue<Universidad.EClases>();
             Profesor.random = new Random();
             this._randomClases();
+            this._randomClases();
         }
         #endregion
 
         #region Metodos
         public void _randomClases()
         {
-            clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
             clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
         }
 

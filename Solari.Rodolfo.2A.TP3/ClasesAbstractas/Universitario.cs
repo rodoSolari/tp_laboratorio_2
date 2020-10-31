@@ -34,7 +34,10 @@ namespace ClasesAbstractas
         /// <returns></returns>
         protected virtual string MostrarDatos() 
         {
-            return base.ToString() + "\nNUMERO LEGAJO: " + this.legajo + "\n";
+            StringBuilder strUniversitario = new StringBuilder();
+            strUniversitario.AppendLine(base.ToString());
+            strUniversitario.AppendFormat("NUMERO DE LEGAJO: {0}\n", this.legajo);
+            return strUniversitario.ToString();
         }
 
         /// <summary>

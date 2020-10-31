@@ -114,8 +114,10 @@ namespace ClasesInstanciables
             strJornada.AppendLine("JORNADA:");
             foreach(Jornada item in uni.jornada)
             {
-                strJornada.Append(item);
+                strJornada.Append(item.ToString());
+                strJornada.AppendLine("__________________________________\n");
             }
+
             return strJornada.ToString();
         }
         #endregion
@@ -272,7 +274,7 @@ namespace ClasesInstanciables
         /// <returns></returns>
         public static Profesor operator !=(Universidad u, EClases clase)
         {
-            Profesor prof = null;
+            Profesor prof = new Profesor();
             foreach(Profesor item in u.profesores)
             {
                 if(item != clase)
@@ -283,7 +285,6 @@ namespace ClasesInstanciables
             }
             return prof;
         }
-        
         #endregion
     }
 }

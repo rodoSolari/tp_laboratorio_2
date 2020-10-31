@@ -46,7 +46,8 @@ namespace ClasesInstanciables
             {
                 return this.clase;
             }
-            set {
+            set 
+            {
                 this.clase = value;
             }
         }
@@ -86,9 +87,11 @@ namespace ClasesInstanciables
         {
             StringBuilder strJornada = new StringBuilder();
             strJornada.AppendLine(this.instructor.ToString());
+            strJornada.AppendLine("ALUMNOS\n");
             foreach(Alumno item in this.alumnos)
             {
                 strJornada.AppendLine(item.ToString());
+
             }
             return strJornada.ToString();
         }
@@ -100,7 +103,7 @@ namespace ClasesInstanciables
             bool respuesta = false;
             foreach (Alumno item in j.alumnos)
             {
-                if (a.Equals(item))
+                if (a == item)
                 {
                     respuesta = true;
                     break;
@@ -116,12 +119,9 @@ namespace ClasesInstanciables
 
         public static Jornada operator +(Jornada j, Alumno a)
         {
-            foreach (Alumno item in j.alumnos)
+            if (j != a)
             {
-                if (j != a)
-                {
-                    j.alumnos.Add(a);
-                }
+                j.alumnos.Add(a);
             }
             return j;
         }
