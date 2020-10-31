@@ -24,14 +24,14 @@ namespace ClasesAbstractas
         #endregion
 
         #region Propiedades
-        protected string Apellido {
+        public string Apellido {
             get 
             {
                 return this.apellido;
             }
             set 
             {
-                this.apellido = value;
+                this.apellido = this.validarNombreApellido(value);
             }
         }
 
@@ -65,7 +65,7 @@ namespace ClasesAbstractas
             }
             set 
             {
-                this.nombre = value;
+                this.nombre = this.validarNombreApellido(value);
             }
         
         }
@@ -98,7 +98,7 @@ namespace ClasesAbstractas
 
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
-            
+            this.StringToDNI= dni;
         }
         #endregion
 

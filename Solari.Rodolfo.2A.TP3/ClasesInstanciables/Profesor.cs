@@ -18,30 +18,33 @@ namespace ClasesInstanciables
         #region Constructor
         public Profesor()
         {
-            _randomClases();
+            /*clasesDelDia = new Queue<Universidad.EClases>();
+            _randomClases();*/
         }
 
         static Profesor()
         {
-            random = new Random();
+            //random = new Random();
         }
 
         public Profesor(int id,string nombre,string apellido,string dni, ENacionalidad nacionalidad) : base(id, nombre, apellido, dni, nacionalidad)
         {
-
+            this.clasesDelDia = new Queue<Universidad.EClases>();
+            Profesor.random = new Random();
+            this._randomClases();
         }
         #endregion
 
         #region Metodos
         public void _randomClases()
         {
-            clasesDelDia.Enqueue((Universidad.EClases)random.Next(1,4));
-            clasesDelDia.Enqueue((Universidad.EClases)random.Next(1,4));
+            clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
+            clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
         }
 
         protected override string MostrarDatos()
         {
-            return base.MostrarDatos();
+            return base.MostrarDatos() + this.ParticiparEnClase();
         }
 
         protected override string ParticiparEnClase()
@@ -64,7 +67,16 @@ namespace ClasesInstanciables
         #region Sobrecarga de operadores
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
-            return true;
+            bool respuesta = false;
+            foreach (Universidad.EClases item in i.clasesDelDia)
+            {
+                if(item == clase)
+                {
+                    respuesta = true;
+                    break;
+                }
+            }
+            return respuesta;
         }
 
         public static bool operator !=(Profesor i, Universidad.EClases clase)

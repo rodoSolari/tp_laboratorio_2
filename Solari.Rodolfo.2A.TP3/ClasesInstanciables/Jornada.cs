@@ -18,10 +18,10 @@ namespace ClasesInstanciables
         #region Constructor
         private Jornada()
         {
-            alumnos = new List<Alumno>();
+            this.alumnos = new List<Alumno>();
         }
 
-        public Jornada(Universidad.EClases clase, Profesor instructor)
+        public Jornada(Universidad.EClases clase, Profesor instructor) : this()
         {
             this.clase = clase;
             this.instructor = instructor;
@@ -29,18 +29,42 @@ namespace ClasesInstanciables
         #endregion
 
         #region Propiedades
-        private List<Alumno> Alumnos
+        public List<Alumno> Alumnos
         {
-            get; set;
+            get 
+            {
+                return this.alumnos;
+            }
+            set
+            {
+                this.alumnos = value;
+            }
         }
 
-        private Universidad.EClases Clase { get; set; }
+        public Universidad.EClases Clase {
+            get
+            {
+                return this.clase;
+            }
+            set {
+                this.clase = value;
+            }
+        }
 
-        private Profesor Instructor { get; set; }
+        public Profesor Instructor { 
+            get 
+            {
+                return this.instructor;
+            }
+            set 
+            {
+                this.instructor = value;
+            }
+        }
         #endregion
 
         #region Metodos
-        public bool Guardar(Jornada jordana)
+        public static bool Guardar(Jornada jordana)
         {
             Texto ArchivoEscritura = new Texto();
             bool escritura = ArchivoEscritura.Guardar("ArchivoJornada", jordana.ToString());

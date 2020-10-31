@@ -25,7 +25,9 @@ namespace ClasesInstanciables
         #region Constructores
         public Universidad()
         {
-
+            this.alumnos = new List<Alumno>();
+            this.jornada = new List<Jornada>();
+            this.profesores = new List<Profesor>();
         }
         #endregion
 
@@ -80,7 +82,7 @@ namespace ClasesInstanciables
         /// 
         /// </summary>
         /// <returns></returns>
-        public bool Guardar(Universidad uni)
+        public static bool Guardar(Universidad uni)
         {
             Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
             bool escritura = ArchivoXmlUniversidad.Guardar("ArchivoXmlUniversidad", uni);
@@ -112,11 +114,13 @@ namespace ClasesInstanciables
             strJornada.AppendLine("JORNADA:");
             foreach(Jornada item in uni.jornada)
             {
-                strJornada.AppendLine(item.ToString());
+                strJornada.Append(item);
             }
             return strJornada.ToString();
         }
+        #endregion
 
+        #region Sobrecarga de metodos
         /// <summary>
         /// 
         /// </summary>
@@ -126,6 +130,9 @@ namespace ClasesInstanciables
             return MostrarDatos(this);
         }
 
+        #endregion
+
+        #region Sobrecarga de metodos
         /// <summary>
         /// 
         /// </summary>
@@ -174,15 +181,14 @@ namespace ClasesInstanciables
         /// <returns></returns>
         public static Profesor operator ==(Universidad u, EClases clase)
         {
-            Profesor prof = u == clase;    //Utilizo la sobrecarga de operador ==
-            if (prof == clase)
+            foreach (Profesor item in u.profesores)
             {
-                return prof;
+                if (item == clase)
+                {
+                    return item;
+                }
             }
-            else
-            {
-                throw new SinProfesorException();
-            }
+            throw new SinProfesorException();
         }
 
         /// <summary>
@@ -216,12 +222,9 @@ namespace ClasesInstanciables
             if(u != a)
             {
                 u.alumnos.Add(a);
+                return u;
             }
-            else
-            {
-                throw new AlumnoRepetidoException();
-            }
-            return u;
+            throw new AlumnoRepetidoException();
         }
 
         /// <summary>

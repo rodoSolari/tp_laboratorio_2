@@ -15,7 +15,7 @@ namespace Excepciones
 
         public DniInvalidoException(Exception e)
         {
-
+            
         }
 
         public DniInvalidoException(string message) : base(message)
