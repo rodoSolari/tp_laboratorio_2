@@ -123,7 +123,7 @@ namespace ClasesInstanciables
             bool respuesta = false;
             foreach (Alumno item in j.alumnos)
             {
-                if (a == item)
+                if (a.Equals(item))
                 {
                     respuesta = true;
                     break;

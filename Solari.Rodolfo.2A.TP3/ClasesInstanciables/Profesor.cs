@@ -18,7 +18,7 @@ namespace ClasesInstanciables
         #region Constructor
         public Profesor()
         {
-            
+            this.clasesDelDia = new Queue<Universidad.EClases>();
         }
 
         static Profesor()

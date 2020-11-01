@@ -131,8 +131,8 @@ namespace ClasesAbstractas
         /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionanidad, int dato)
         {
-            if ((nacionalidad == ENacionalidad.Argentino && dato > 9000000 && dato < 9999999) ||
-            (nacionalidad == ENacionalidad.Extranjero && dato > 1 && dato < 8999999))
+            if ((nacionalidad == ENacionalidad.Argentino && (dato > 90000000 && dato < 99999999)) ||
+            (nacionalidad == ENacionalidad.Extranjero && (dato > 1 && dato < 89999999)))
             {
                 throw new NacionalidadInvalidaException();
             }
@@ -171,7 +171,7 @@ namespace ClasesAbstractas
         private string validarNombreApellido(string dato) 
         {
             string respuesta = null;
-            if (Regex.IsMatch(dato,"^[a-zA-Z]"))
+            if (!string.IsNullOrWhiteSpace(dato) && Regex.IsMatch(dato,"^[a-zA-Z]"))
             {
                 respuesta = dato;
             }
