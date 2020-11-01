@@ -39,6 +39,10 @@ namespace ClasesInstanciables
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string MostrarDatos()
         {
             StringBuilder strAlumno = new StringBuilder();
@@ -51,11 +55,19 @@ namespace ClasesInstanciables
 
 
         #region Sobrecarga de metodos
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string ParticiparEnClase()
         {
             return "TOMA CLASE DE " + this.claseQueToma;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.MostrarDatos();
@@ -63,11 +75,23 @@ namespace ClasesInstanciables
         #endregion
 
         #region Sobrecarga de operadores
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
             return (a.claseQueToma == clase && a.estadoCuenta != EEstadoCuenta.Deudor);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator !=(Alumno a, Universidad.EClases clase) 
         {
             return !(a == clase);

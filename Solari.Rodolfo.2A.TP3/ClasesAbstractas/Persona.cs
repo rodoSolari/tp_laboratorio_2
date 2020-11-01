@@ -152,7 +152,7 @@ namespace ClasesAbstractas
             }
             else
             {
-                throw new DniInvalidoException();
+                throw new DniInvalidoException("Error en el formato de dni ingresado");
             }
         }
 

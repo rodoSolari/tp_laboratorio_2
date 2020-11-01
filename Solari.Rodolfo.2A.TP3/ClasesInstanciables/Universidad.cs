@@ -79,8 +79,9 @@ namespace ClasesInstanciables
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Guarda una universidad en un archivo xml
         /// </summary>
+        /// <param name="uni">Universidad a guardar</param>
         /// <returns></returns>
         public static bool Guardar(Universidad uni)
         {
@@ -91,7 +92,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Lee un archivo xml que contiene datos de tipo Universidad
         /// </summary>
         /// <returns></returns>
         public Universidad Leer()
@@ -104,9 +105,9 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Muestra los datos de la universidad
         /// </summary>
-        /// <param name="uni"></param>
+        /// <param name="uni">Universidad a mostrar</param>
         /// <returns></returns>
         private static string MostrarDatos(Universidad uni)
         {
@@ -124,7 +125,7 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de metodos
         /// <summary>
-        /// 
+        /// Sobrecarga metodo ToString que devuelve los datos de la universidad
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -136,10 +137,10 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de metodos
         /// <summary>
-        /// 
+        /// Devuelve true si el alumno esta contenido en la universidad, caso contrario devuelve false
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="a"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="a">Alumno</param>
         /// <returns></returns>
         public static bool operator ==(Universidad g, Alumno a)
         {
@@ -156,10 +157,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve true si el profesor esta contenido en la universidad, caso contrario devuelve false
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="i"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="i">Profesor</param>
         /// <returns></returns>
         public static bool operator ==(Universidad g, Profesor i)
         {
@@ -176,10 +177,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve el profesor que de la clase ingresada, caso contrario devolvera excepcion por no tener profesor de esa clase
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="clase"></param>
+        /// <param name="u">Universidad</param>
+        /// <param name="clase">Clase</param>
         /// <returns></returns>
         public static Profesor operator ==(Universidad u, EClases clase)
         {
@@ -194,10 +195,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Agrega una nueva jornada con la clase ingresada
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="clase"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="clase">clase</param>
         /// <returns></returns>
         public static Universidad operator +(Universidad g, EClases clase)
         {
@@ -214,10 +215,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Agrega alumno a la universidad
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="a"></param>
+        /// <param name="u">Universidad</param>
+        /// <param name="a">Alumno</param>
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Alumno a)
         {
@@ -230,10 +231,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Agregar un profesor a la universidad
         /// </summary>
-        /// <param name="u"></param>
-        /// <param name="i"></param>
+        /// <param name="u">Universidad</param>
+        /// <param name="i">Profesor</param>
         /// <returns></returns>
         public static Universidad operator +(Universidad u, Profesor i)
         {
@@ -245,10 +246,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve true si el alumno no pertenece a la universidad
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="a"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="a">Alumno</param>
         /// <returns></returns>
         public static bool operator !=(Universidad g, Alumno a)
         {
@@ -256,10 +257,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve true si el profesor no pertenece a la universidad
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="i"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="i">Profesor</param>
         /// <returns></returns>
         public static bool operator !=(Universidad g, Profesor i)
         {
@@ -267,10 +268,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve el profesor que de esa clase ingresada
         /// </summary>
-        /// <param name="g"></param>
-        /// <param name="clase"></param>
+        /// <param name="g">Universidad</param>
+        /// <param name="clase">Clase</param>
         /// <returns></returns>
         public static Profesor operator !=(Universidad u, EClases clase)
         {

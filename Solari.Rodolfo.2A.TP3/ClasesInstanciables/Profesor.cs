@@ -36,16 +36,27 @@ namespace ClasesInstanciables
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// 
+        /// </summary>
         public void _randomClases()
         {
             clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string MostrarDatos()
         {
             return base.MostrarDatos() + this.ParticiparEnClase();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder strClases = new StringBuilder();
@@ -57,6 +68,10 @@ namespace ClasesInstanciables
             return strClases.ToString();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return this.MostrarDatos();
@@ -64,6 +79,12 @@ namespace ClasesInstanciables
         #endregion
 
         #region Sobrecarga de operadores
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
             bool respuesta = false;
@@ -78,6 +99,12 @@ namespace ClasesInstanciables
             return respuesta;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <param name="clase"></param>
+        /// <returns></returns>
         public static bool operator !=(Profesor i, Universidad.EClases clase)
         {
             return !(i == clase);

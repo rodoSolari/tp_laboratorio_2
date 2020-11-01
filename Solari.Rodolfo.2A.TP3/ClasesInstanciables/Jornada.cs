@@ -65,24 +65,37 @@ namespace ClasesInstanciables
         #endregion
 
         #region Metodos
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jordana"></param>
+        /// <returns></returns>
         public static bool Guardar(Jornada jordana)
         {
             Texto ArchivoEscritura = new Texto();
-            bool escritura = ArchivoEscritura.Guardar("ArchivoJornada", jordana.ToString());
+            bool escritura = ArchivoEscritura.Guardar("ArchivoJornada.txt", jordana.ToString());
             return escritura;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string Leer()
         {
             Texto ArchivoLectura = new Texto();
-            string datos = " ";
-            ArchivoLectura.Leer("ArchivoJornada",out datos);
+            string datos;
+            ArchivoLectura.Leer(@"\ArchivoJornada.txt",out datos);
             return datos;
         }
 
         #endregion
 
         #region Sobrecarga de metodos
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder strJornada = new StringBuilder();
@@ -98,6 +111,13 @@ namespace ClasesInstanciables
         #endregion
 
         #region Sobrecarga de operadores
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator ==(Jornada j,Alumno a)
         {
             bool respuesta = false;
@@ -112,11 +132,23 @@ namespace ClasesInstanciables
             return respuesta;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator !=(Jornada j, Alumno a)
         {
             return !(j == a);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {
             if (j != a)
