@@ -18,18 +18,17 @@ namespace ClasesInstanciables
         #region Constructor
         public Profesor()
         {
-
+            
         }
 
         static Profesor()
         {
-            //random = new Random();
+            random = new Random();
         }
 
         public Profesor(int id,string nombre,string apellido,string dni, ENacionalidad nacionalidad) : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
-            Profesor.random = new Random();
             this._randomClases();
             this._randomClases();
         }
