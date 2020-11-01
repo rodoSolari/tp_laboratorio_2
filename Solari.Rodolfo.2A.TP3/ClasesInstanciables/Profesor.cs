@@ -45,7 +45,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// devuelve los datos del profesor con la clase que participa
         /// </summary>
         /// <returns></returns>
         protected override string MostrarDatos()
@@ -54,13 +54,13 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve las clases que participa el profesor
         /// </summary>
         /// <returns></returns>
         protected override string ParticiparEnClase()
         {
             StringBuilder strClases = new StringBuilder();
-            strClases.AppendLine("CLASES DEL DIA \n");
+            strClases.AppendLine("CLASES DEL DIA");
             foreach(Universidad.EClases item in this.clasesDelDia)
             {
                 strClases.AppendFormat("{0}\n",item);
@@ -69,7 +69,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve los datos del profesor
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -80,10 +80,10 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de operadores
         /// <summary>
-        /// 
+        /// Verifica si el profesor da la clase ingresada
         /// </summary>
-        /// <param name="i"></param>
-        /// <param name="clase"></param>
+        /// <param name="i">profesor</param>
+        /// <param name="clase">clase</param>
         /// <returns></returns>
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
@@ -100,10 +100,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Verifica si el profesor no da la clase ingresada
         /// </summary>
-        /// <param name="i"></param>
-        /// <param name="clase"></param>
+        /// <param name="i">profesor</param>
+        /// <param name="clase">clase</param>
         /// <returns></returns>
         public static bool operator !=(Profesor i, Universidad.EClases clase)
         {

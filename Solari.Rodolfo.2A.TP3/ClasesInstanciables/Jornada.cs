@@ -66,7 +66,7 @@ namespace ClasesInstanciables
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Guarda la jornada en un archivo de formato .txt
         /// </summary>
         /// <param name="jordana"></param>
         /// <returns></returns>
@@ -78,7 +78,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Lee el archivo de la jornada en formato .txt
         /// </summary>
         /// <returns></returns>
         public string Leer()
@@ -93,14 +93,14 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de metodos
         /// <summary>
-        /// 
+        /// Devuelve los datos de la jornada
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
             StringBuilder strJornada = new StringBuilder();
-            strJornada.AppendLine(this.instructor.ToString());
-            strJornada.AppendLine("ALUMNOS\n");
+            strJornada.AppendFormat("CLASE DE: {0} POR {1}", this.clase,this.instructor.ToString());
+            strJornada.AppendLine("\nALUMNOS:");
             foreach(Alumno item in this.alumnos)
             {
                 strJornada.AppendLine(item.ToString());
@@ -113,10 +113,10 @@ namespace ClasesInstanciables
         #region Sobrecarga de operadores
 
         /// <summary>
-        /// 
+        /// Verifica que el alumno participa en dicha jornada
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
+        /// <param name="j">jornada</param>
+        /// <param name="a">alumno</param>
         /// <returns></returns>
         public static bool operator ==(Jornada j,Alumno a)
         {
@@ -133,10 +133,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Verifica que el alumno no participe en dicha jornada
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
+        /// <param name="j">jornada</param>
+        /// <param name="a">alumno</param>
         /// <returns></returns>
         public static bool operator !=(Jornada j, Alumno a)
         {
@@ -144,10 +144,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Agrega al alumno en la jornada
         /// </summary>
-        /// <param name="j"></param>
-        /// <param name="a"></param>
+        /// <param name="j">jornada</param>
+        /// <param name="a">alumno</param>
         /// <returns></returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {

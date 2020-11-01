@@ -41,7 +41,7 @@ namespace ClasesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Metodo protegido y abstracto
         /// </summary>
         /// <returns></returns>
         protected abstract string ParticiparEnClase();
@@ -51,10 +51,11 @@ namespace ClasesAbstractas
         #region Sobrecarga de operadores
 
         /// <summary>
-        /// 
+        /// Devuelve true si dos universitarios son iguales, si y solo si son de la misma nacionalidad
+        /// y su legajo o dni son iguales
         /// </summary>
-        /// <param name="pg1"></param>
-        /// <param name="pg2"></param>
+        /// <param name="pg1">universitario</param>
+        /// <param name="pg2">universitario</param>
         /// <returns></returns>
         public static bool operator ==(Universitario pg1, Universitario pg2) 
         {
@@ -62,10 +63,10 @@ namespace ClasesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Devuelve true si son distintos los universitarios
         /// </summary>
-        /// <param name="pg1"></param>
-        /// <param name="pg2"></param>
+        /// <param name="pg1">universitario</param>
+        /// <param name="pg2">universitario</param>
         /// <returns></returns>
         public static bool operator !=(Universitario pg1, Universitario pg2)
         {
@@ -73,9 +74,9 @@ namespace ClasesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Verifica que el objeto sea de tipo universitario
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Objeto a verificar</param>
         /// <returns></returns>
         public override bool Equals(object obj)
         {

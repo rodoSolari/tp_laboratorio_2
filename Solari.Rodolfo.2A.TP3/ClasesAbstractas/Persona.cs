@@ -110,7 +110,7 @@ namespace ClasesAbstractas
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Devuelve los datos de las personas
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -123,7 +123,8 @@ namespace ClasesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Valida que el dni sea correcto teniendo en cuenta el numero con respecto a su nacionalidad,
+        /// caso contrario devuelve excepcion NacionalidadInvalidaException
         /// </summary>
         /// <param name="nacionanidad"> nacionalidad de la persona </param>
         /// <param name="dato"> dni de la persona a validar </param>
@@ -142,7 +143,8 @@ namespace ClasesAbstractas
         }
 
         /// <summary>
-        /// 
+        /// Se valida si el dni es numerico y presenta la cantidad de caracteres, 
+        /// caso contrario devuelve excepcion de DniInvalidoException
         /// </summary>
         /// <param name="nacionalidad"> nacionalidad de la persona </param>
         /// <param name="dato"> dni de la persona a validar </param>
@@ -164,7 +166,7 @@ namespace ClasesAbstractas
         /// <summary>
         /// Validara que los nombres ingresados sean cadenas con caracteres validos, caso contrario no se cargara
         /// </summary>
-        /// <param name="dato">nombre y apellido a validar </param>
+        /// <param name="dato">string a validar </param>
         /// <returns></returns>
         private string validarNombreApellido(string dato) 
         {

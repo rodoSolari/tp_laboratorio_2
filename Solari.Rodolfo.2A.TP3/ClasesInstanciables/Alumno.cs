@@ -40,7 +40,7 @@ namespace ClasesInstanciables
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Devuelve los datos del alumno
         /// </summary>
         /// <returns></returns>
         protected override string MostrarDatos()
@@ -48,7 +48,7 @@ namespace ClasesInstanciables
             StringBuilder strAlumno = new StringBuilder();
             strAlumno.AppendLine(base.MostrarDatos());
             strAlumno.AppendFormat("ESTADO DE LA CUENTA: {0}\n", this.estadoCuenta);
-            strAlumno.AppendLine(this.ParticiparEnClase());
+            strAlumno.Append(this.ParticiparEnClase());
             return strAlumno.ToString();
         }
         #endregion
@@ -56,7 +56,7 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de metodos
         /// <summary>
-        /// 
+        /// Retorna una cadena junto al nombre de la clase que toma
         /// </summary>
         /// <returns></returns>
         protected override string ParticiparEnClase()
@@ -65,7 +65,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Devuelve los datos del alumnos 
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -76,10 +76,10 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de operadores
         /// <summary>
-        /// 
+        /// Verifica que el alumno toma la clase y que su estado de cuenta no sea deudora
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="clase"></param>
+        /// <param name="a">alumno</param>
+        /// <param name="clase">clase</param>
         /// <returns></returns>
         public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
@@ -87,10 +87,10 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// 
+        /// Verifica si el alumno no toma la clase
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="clase"></param>
+        /// <param name="a">alumno</param>
+        /// <param name="clase">clase</param>
         /// <returns></returns>
         public static bool operator !=(Alumno a, Universidad.EClases clase) 
         {
