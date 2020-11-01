@@ -37,7 +37,7 @@ namespace ClasesInstanciables
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Genera un numero random del 0 al 3 del enumerado EClases
         /// </summary>
         public void _randomClases()
         {

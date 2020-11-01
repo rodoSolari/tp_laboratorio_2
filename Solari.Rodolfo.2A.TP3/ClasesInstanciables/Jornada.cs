@@ -18,13 +18,13 @@ namespace ClasesInstanciables
         #region Constructor
         private Jornada()
         {
-            this.alumnos = new List<Alumno>();
+            this.Alumnos = new List<Alumno>();
         }
 
         public Jornada(Universidad.EClases clase, Profesor instructor) : this()
         {
-            this.clase = clase;
-            this.instructor = instructor;
+            this.Clase = clase;
+            this.Instructor = instructor;
         }
         #endregion
 

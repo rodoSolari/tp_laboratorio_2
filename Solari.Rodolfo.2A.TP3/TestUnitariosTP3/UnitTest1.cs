@@ -12,8 +12,8 @@ namespace TestUnitariosTP3
         [TestMethod]
         public void TestNombreAlumnoInvalido()
         {
-            Alumno alumno = new Alumno(1, "EEE34#@@", "Suarez", "13234333", Persona.ENacionalidad.Argentino, Universidad.EClases.Laboratorio);
-            bool nombre = alumno.Nombre == " ";
+            Alumno alumno = new Alumno(1, "&$#34#@@", "Suarez", "13234333", Persona.ENacionalidad.Argentino, Universidad.EClases.Laboratorio);
+            bool nombre = alumno.Nombre == null;
             Assert.IsTrue(nombre);
         }
 
@@ -22,11 +22,10 @@ namespace TestUnitariosTP3
         public void TestDniInvalido()
         {
             Profesor profesor = new Profesor(1, "Fernando", "Suarez", "EEEE3%$3", Persona.ENacionalidad.Argentino);
-
         }
 
         [TestMethod]
-        public void TestColeccionJornadaNula()
+        public void TestColeccionJornadaAgregarAlumno()
         {
             Profesor profesor = new Profesor();
             Jornada jornada = new Jornada(Universidad.EClases.Laboratorio, profesor);

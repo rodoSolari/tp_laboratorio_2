@@ -31,14 +31,17 @@ namespace ClasesAbstractas
             }
             set 
             {
-                this.apellido = this.validarNombreApellido(value);
+                if (this.validarNombreApellido(value) != null)
+                {
+                    this.apellido = value;
+                }
             }
         }
 
         public int DNI { 
             get 
             {
-                return ValidarDni(this.nacionalidad, this.dni);
+                return this.dni;
             }
             set 
             {
@@ -65,7 +68,10 @@ namespace ClasesAbstractas
             }
             set 
             {
-                this.nombre = this.validarNombreApellido(value);
+                if(this.validarNombreApellido(value) != null)
+                {
+                    this.nombre = value;
+                }
             }
         
         }
@@ -86,14 +92,14 @@ namespace ClasesAbstractas
 
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.nacionalidad = nacionalidad;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Nacionalidad = nacionalidad;
         }
 
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) : this(nombre,apellido,nacionalidad)
         {
-            this.dni = dni;
+            this.DNI = dni;
         }
 
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
@@ -143,16 +149,15 @@ namespace ClasesAbstractas
         /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato) 
         {
-            bool esNumerico;
             int datoInt;
-            esNumerico = int.TryParse(dato, out datoInt);
+            bool esNumerico = int.TryParse(dato, out datoInt);
             if (esNumerico && dato.Length <= 9)
             {
                 return ValidarDni(nacionalidad, datoInt);
             }
             else
             {
-                throw new DniInvalidoException("Error en el formato de dni ingresado");
+                throw new DniInvalidoException("Error en el formato numerico o la cantidad de digitos del dni ingresado");
             }
         }
 
@@ -163,8 +168,8 @@ namespace ClasesAbstractas
         /// <returns></returns>
         private string validarNombreApellido(string dato) 
         {
-            string respuesta = " ";
-            if (Regex.IsMatch(dato,"[^a-zA-Z]"))
+            string respuesta = null;
+            if (Regex.IsMatch(dato,"^[a-zA-Z]"))
             {
                 respuesta = dato;
             }

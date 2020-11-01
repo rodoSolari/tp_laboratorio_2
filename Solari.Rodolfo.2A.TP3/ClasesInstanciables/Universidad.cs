@@ -25,9 +25,9 @@ namespace ClasesInstanciables
         #region Constructores
         public Universidad()
         {
-            this.alumnos = new List<Alumno>();
-            this.jornada = new List<Jornada>();
-            this.profesores = new List<Profesor>();
+            this.Alumnos = new List<Alumno>();
+            this.Jornadas = new List<Jornada>();
+            this.Instructores = new List<Profesor>();
         }
         #endregion
 
