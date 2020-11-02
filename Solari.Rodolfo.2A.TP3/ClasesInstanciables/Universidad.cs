@@ -79,16 +79,32 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// Propiedad de indexador jornada
+        /// Propiedad de indexador jornada, el indice debe ser un valor entre cero y la cantidad de jornadas
+        /// Lectura : si no supera el limite de los elementos, devuelve la jornada, caso contrario devuelve null
+        /// Escritura : Si el indice es uno que exista, lo asigna directamente, y si coincide con la cantidad de jornadas actuales, lo agrega
         /// </summary>
         public Jornada this[int i] { 
             get 
             {
-                return this.jornada[i];
+                if(i >= this.jornada.Count || i < 0)
+                {
+                    return null;
+                }
+                else
+                {
+                    return this.jornada[i];
+                }
             } 
             set 
             {
-                this.jornada[i] = value;
+                if(i >= 0 && i < this.jornada.Count)
+                {
+                    this.jornada[i] = value;
+                }
+                else if(i == this.jornada.Count)
+                {
+                    this.jornada.Add(value);
+                }
             } 
         }
         #endregion
