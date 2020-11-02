@@ -47,7 +47,7 @@ namespace ClasesAbstractas
         {
             StringBuilder strUniversitario = new StringBuilder();
             strUniversitario.AppendLine(base.ToString());
-            strUniversitario.AppendFormat("NUMERO DE LEGAJO: {0}\n", this.legajo);
+            strUniversitario.AppendFormat("LEGAJO: {0}\n", this.legajo);
             return strUniversitario.ToString();
         }
 

@@ -83,7 +83,7 @@ namespace ClasesInstanciables
         /// <returns></returns>
         protected override string ParticiparEnClase()
         {
-            return "TOMA CLASE DE " + this.claseQueToma;
+            return "TOMA CLASES DE " + this.claseQueToma;
         }
 
         /// <summary>
