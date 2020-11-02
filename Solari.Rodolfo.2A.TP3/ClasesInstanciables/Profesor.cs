@@ -15,7 +15,7 @@ namespace ClasesInstanciables
         private static Random random;
         #endregion
 
-        #region Constructor
+        #region Constructores
         /// <summary>
         /// Constructor profesor que inicializa coleccion de clases del dia
         /// </summary>

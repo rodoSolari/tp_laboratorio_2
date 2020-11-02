@@ -62,7 +62,7 @@ namespace ClasesInstanciables
         }
         #endregion
 
-        #region Constructor
+        #region Constructores
         /// <summary>
         /// Constructor jornada
         /// </summary>
