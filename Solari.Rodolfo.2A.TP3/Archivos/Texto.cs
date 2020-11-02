@@ -10,6 +10,7 @@ namespace Archivos
 {
     public class Texto
     {
+        #region Metodos
         /// <summary>
         /// Guardar los datos en un archivo de tipo texto
         /// </summary>
@@ -54,5 +55,6 @@ namespace Archivos
                 throw new ArchivosException(e);
             }
         }
+        #endregion
     }
 }

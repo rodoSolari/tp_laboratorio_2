@@ -15,6 +15,53 @@ namespace ClasesInstanciables
         private Profesor instructor;
         #endregion
 
+        #region Propiedades
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo alumnos
+        /// </summary>
+        public List<Alumno> Alumnos
+        {
+            get
+            {
+                return this.alumnos;
+            }
+            set
+            {
+                this.alumnos = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo clase
+        /// </summary>
+        public Universidad.EClases Clase
+        {
+            get
+            {
+                return this.clase;
+            }
+            set
+            {
+                this.clase = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo instructor
+        /// </summary>
+        public Profesor Instructor
+        {
+            get
+            {
+                return this.instructor;
+            }
+            set
+            {
+                this.instructor = value;
+            }
+        }
+        #endregion
+
         #region Constructor
         /// <summary>
         /// Constructor jornada
@@ -33,52 +80,6 @@ namespace ClasesInstanciables
         {
             this.Clase = clase;
             this.Instructor = instructor;
-        }
-        #endregion
-
-
-        #region Propiedades
-        /// <summary>
-        /// Propiedad de escritura y lectura de atributo alumnos
-        /// </summary>
-        public List<Alumno> Alumnos
-        {
-            get 
-            {
-                return this.alumnos;
-            }
-            set
-            {
-                this.alumnos = value;
-            }
-        }
-
-        /// <summary>
-        /// Propiedad de escritura y lectura de atributo clase
-        /// </summary>
-        public Universidad.EClases Clase {
-            get
-            {
-                return this.clase;
-            }
-            set 
-            {
-                this.clase = value;
-            }
-        }
-
-        /// <summary>
-        /// Propiedad de escritura y lectura de atributo instructor
-        /// </summary>
-        public Profesor Instructor { 
-            get 
-            {
-                return this.instructor;
-            }
-            set 
-            {
-                this.instructor = value;
-            }
         }
         #endregion
 

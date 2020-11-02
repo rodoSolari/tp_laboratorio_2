@@ -11,6 +11,7 @@ namespace Archivos
 {
     public class Xml<T>
     {
+        #region metodos
         /// <summary>
         /// Guarda los datos de tipo T en un archivo en formato XML
         /// </summary>
@@ -56,5 +57,6 @@ namespace Archivos
                 throw new ArchivosException(e);
             }
         }
+        #endregion
     }
 }

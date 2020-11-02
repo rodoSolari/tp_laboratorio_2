@@ -22,45 +22,35 @@ namespace ClasesInstanciables
         }
         #endregion
 
-        #region Constructores
-        /// <summary>
-        /// Constructor universidad que inicializa las listas alumnos,jornada y profesores
-        /// </summary>
-        public Universidad()
-        {
-            this.Alumnos = new List<Alumno>();
-            this.Jornadas = new List<Jornada>();
-            this.Instructores = new List<Profesor>();
-        }
-        #endregion
-
         #region Propiedades
         /// <summary>
         /// Propiedad de escritura y lectura alumnos
         /// </summary>
-        public List<Alumno> Alumnos { 
-            get 
+        public List<Alumno> Alumnos
+        {
+            get
             {
                 return this.alumnos;
             }
-            set 
+            set
             {
                 this.alumnos = value;
-            } 
+            }
         }
 
         /// <summary>
         /// Propiedad de escritura y lectura profesores
         /// </summary>
-        public List<Profesor> Instructores {
-            get 
+        public List<Profesor> Instructores
+        {
+            get
             {
                 return this.profesores;
             }
-            set 
+            set
             {
                 this.profesores = value;
-            } 
+            }
         }
 
         /// <summary>
@@ -83,10 +73,11 @@ namespace ClasesInstanciables
         /// Lectura : si no supera el limite de los elementos, devuelve la jornada, caso contrario devuelve null
         /// Escritura : Si el indice es uno que exista, lo asigna directamente, y si coincide con la cantidad de jornadas actuales, lo agrega
         /// </summary>
-        public Jornada this[int i] { 
-            get 
+        public Jornada this[int i]
+        {
+            get
             {
-                if(i >= this.jornada.Count || i < 0)
+                if (i >= this.jornada.Count || i < 0)
                 {
                     return null;
                 }
@@ -94,18 +85,30 @@ namespace ClasesInstanciables
                 {
                     return this.jornada[i];
                 }
-            } 
-            set 
+            }
+            set
             {
-                if(i >= 0 && i < this.jornada.Count)
+                if (i >= 0 && i < this.jornada.Count)
                 {
                     this.jornada[i] = value;
                 }
-                else if(i == this.jornada.Count)
+                else if (i == this.jornada.Count)
                 {
                     this.jornada.Add(value);
                 }
-            } 
+            }
+        }
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Constructor universidad que inicializa las listas alumnos,jornada y profesores
+        /// </summary>
+        public Universidad()
+        {
+            this.Alumnos = new List<Alumno>();
+            this.Jornadas = new List<Jornada>();
+            this.Instructores = new List<Profesor>();
         }
         #endregion
 
@@ -165,7 +168,7 @@ namespace ClasesInstanciables
 
         #endregion
 
-        #region Sobrecarga de metodos
+        #region Sobrecarga de operadores
         /// <summary>
         /// Devuelve true si el alumno esta contenido en la universidad, caso contrario devuelve false
         /// </summary>

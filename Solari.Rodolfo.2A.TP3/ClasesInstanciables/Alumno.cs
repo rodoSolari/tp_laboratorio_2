@@ -75,7 +75,6 @@ namespace ClasesInstanciables
         }
         #endregion
 
-
         #region Sobrecarga de metodos
         /// <summary>
         /// Retorna una cadena junto al nombre de la clase que toma
