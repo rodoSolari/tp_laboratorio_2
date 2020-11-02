@@ -102,7 +102,7 @@ namespace ClasesInstanciables
         public static bool Guardar(Universidad uni)
         {
             Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
-            bool escritura = ArchivoXmlUniversidad.Guardar("ArchivoXmlUniversidad", uni);
+            bool escritura = ArchivoXmlUniversidad.Guardar("Universidad", uni);
 
             return escritura;
         }
@@ -115,7 +115,7 @@ namespace ClasesInstanciables
         {
             Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
             Universidad UniversidadLeida = new Universidad();
-            ArchivoXmlUniversidad.Leer("ArchivoXmlUniversidad",out UniversidadLeida);
+            ArchivoXmlUniversidad.Leer("Universidad",out UniversidadLeida);
 
             return UniversidadLeida;
         }
