@@ -193,7 +193,7 @@ namespace ClasesAbstractas
         {
             int datoInt;
             bool esNumerico = int.TryParse(dato, out datoInt);
-            if (esNumerico && dato.Length <= 9)
+            if (esNumerico && dato.Length <= 8)
             {
                 return ValidarDni(nacionalidad, datoInt);
             }
