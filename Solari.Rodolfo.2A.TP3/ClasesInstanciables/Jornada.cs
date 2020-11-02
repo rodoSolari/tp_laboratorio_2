@@ -117,6 +117,7 @@ namespace ClasesInstanciables
         public override string ToString()
         {
             StringBuilder strJornada = new StringBuilder();
+            strJornada.AppendLine("JORNADA:");
             strJornada.AppendFormat("CLASE DE: {0} POR {1}", this.clase,this.instructor.ToString());
             strJornada.AppendLine("\nALUMNOS:");
             foreach(Alumno item in this.alumnos)
@@ -124,6 +125,7 @@ namespace ClasesInstanciables
                 strJornada.AppendLine(item.ToString());
 
             }
+            strJornada.AppendLine("<---------------------------------------->");
             return strJornada.ToString();
         }
         #endregion
