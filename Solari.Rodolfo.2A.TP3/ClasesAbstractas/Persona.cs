@@ -26,6 +26,7 @@ namespace ClasesAbstractas
         #region Propiedades
         /// <summary>
         /// Propiedad de escritura y lectura apellido
+        /// si no es valido el apellido, no se realiza la escritura (set)
         /// </summary>
         public string Apellido {
             get 
@@ -72,6 +73,7 @@ namespace ClasesAbstractas
 
         /// <summary>
         /// Propiedad de escritura y lectura Nombre
+        /// si no es valido el apellido, no se realiza la escritura (set)
         /// </summary>
         public string Nombre { 
             get 
