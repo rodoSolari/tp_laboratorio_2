@@ -16,11 +16,19 @@ namespace ClasesInstanciables
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor jornada
+        /// </summary>
         private Jornada()
         {
             this.Alumnos = new List<Alumno>();
         }
 
+        /// <summary>
+        /// Constructor Jornada
+        /// </summary>
+        /// <param name="clase"></param>
+        /// <param name="instructor"></param>
         public Jornada(Universidad.EClases clase, Profesor instructor) : this()
         {
             this.Clase = clase;
@@ -28,7 +36,11 @@ namespace ClasesInstanciables
         }
         #endregion
 
+
         #region Propiedades
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo alumnos
+        /// </summary>
         public List<Alumno> Alumnos
         {
             get 
@@ -41,6 +53,9 @@ namespace ClasesInstanciables
             }
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo clase
+        /// </summary>
         public Universidad.EClases Clase {
             get
             {
@@ -52,6 +67,9 @@ namespace ClasesInstanciables
             }
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura de atributo instructor
+        /// </summary>
         public Profesor Instructor { 
             get 
             {
@@ -93,7 +111,7 @@ namespace ClasesInstanciables
 
         #region Sobrecarga de metodos
         /// <summary>
-        /// Devuelve los datos de la jornada
+        /// Sobrecarga de metodo ToString : Devuelve los datos de la jornada
         /// </summary>
         /// <returns></returns>
         public override string ToString()

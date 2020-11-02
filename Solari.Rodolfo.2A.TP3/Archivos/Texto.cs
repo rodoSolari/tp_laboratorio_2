@@ -10,6 +10,12 @@ namespace Archivos
 {
     public class Texto
     {
+        /// <summary>
+        /// Guardar los datos en un archivo de tipo texto
+        /// </summary>
+        /// <param name="archivo">nombre y/o ruta de archivo del archivo a guardar</param>
+        /// <param name="datos">Datos a guardar</param>
+        /// <returns></returns>
         public bool Guardar(string archivo, string datos)
         {
             try
@@ -26,6 +32,13 @@ namespace Archivos
             }
         }
 
+
+        /// <summary>
+        /// Lee los datos de un archivo de formato texto
+        /// </summary>
+        /// <param name="archivo">nombre y/o ruta de archivo a leer</param>
+        /// <param name="datos">variable en donde se guardan los datos a leer</param>
+        /// <returns></returns>
         public bool Leer(string archivo, out string datos)
         {
             try

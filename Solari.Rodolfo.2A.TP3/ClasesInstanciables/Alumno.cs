@@ -22,16 +22,38 @@ namespace ClasesInstanciables
         #endregion
 
         #region Constructores
+        /// <summary>
+        /// Constructor alumno
+        /// </summary>
         public Alumno() 
         {
         
         }
 
+        /// <summary>
+        /// Constructor alumno que hereda de universitario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
+        /// <param name="claseQueToma"></param>
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma) : base(id,nombre,apellido,dni,nacionalidad)
         {
             this.claseQueToma = claseQueToma;
         }
 
+        /// <summary>
+        /// Constructor universitario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
+        /// <param name="claseQueToma"></param>
+        /// <param name="estadoCuenta"></param>
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma, EEstadoCuenta estadoCuenta) : this(id,nombre,apellido,dni,nacionalidad,claseQueToma)
         {
             this.estadoCuenta = estadoCuenta;
@@ -65,7 +87,7 @@ namespace ClasesInstanciables
         }
 
         /// <summary>
-        /// Devuelve los datos del alumnos 
+        /// Sobrecarga de metodo ToString : Devuelve los datos del alumnos 
         /// </summary>
         /// <returns></returns>
         public override string ToString()

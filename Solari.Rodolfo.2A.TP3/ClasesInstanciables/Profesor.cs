@@ -16,35 +16,49 @@ namespace ClasesInstanciables
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// Constructor profesor que inicializa coleccion de clases del dia
+        /// </summary>
         public Profesor()
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
         }
 
+        /// <summary>
+        /// Constructor estatico profesor que inicializa random
+        /// </summary>
         static Profesor()
         {
-            random = new Random();
+            Profesor.random = new Random();
         }
 
+        /// <summary>
+        /// Constructor profesor que hereda atributos de universitario, inicializa coleccion de clases del dia e inicializa 2 clases random
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Profesor(int id,string nombre,string apellido,string dni, ENacionalidad nacionalidad) : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
-            this._randomClases();
             this._randomClases();
         }
         #endregion
 
         #region Metodos
         /// <summary>
-        /// Genera un numero random del 0 al 3 del enumerado EClases
+        /// Genera 2 numeros random del 0 al 3 del enumerado EClases
         /// </summary>
         public void _randomClases()
         {
             clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
+            clasesDelDia.Enqueue((Universidad.EClases)random.Next(0,3));
         }
 
         /// <summary>
-        /// devuelve los datos del profesor con la clase que participa
+        /// Sobreescribe el metodo MostrarDatos : devuelve los datos del profesor con la clase que participa
         /// </summary>
         /// <returns></returns>
         protected override string MostrarDatos()

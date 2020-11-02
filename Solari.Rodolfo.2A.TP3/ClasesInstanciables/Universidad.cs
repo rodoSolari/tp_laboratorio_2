@@ -23,6 +23,9 @@ namespace ClasesInstanciables
         #endregion
 
         #region Constructores
+        /// <summary>
+        /// Constructor universidad que inicializa las listas alumnos,jornada y profesores
+        /// </summary>
         public Universidad()
         {
             this.Alumnos = new List<Alumno>();
@@ -32,6 +35,9 @@ namespace ClasesInstanciables
         #endregion
 
         #region Propiedades
+        /// <summary>
+        /// Propiedad de escritura y lectura alumnos
+        /// </summary>
         public List<Alumno> Alumnos { 
             get 
             {
@@ -43,6 +49,9 @@ namespace ClasesInstanciables
             } 
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura profesores
+        /// </summary>
         public List<Profesor> Instructores {
             get 
             {
@@ -53,6 +62,10 @@ namespace ClasesInstanciables
                 this.profesores = value;
             } 
         }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura jornadas
+        /// </summary>
         public List<Jornada> Jornadas
         {
             get
@@ -64,7 +77,10 @@ namespace ClasesInstanciables
                 this.jornada = value;
             }
         }
-     
+
+        /// <summary>
+        /// Propiedad de indexador jornada
+        /// </summary>
         public Jornada this[int i] { 
             get 
             {

@@ -14,11 +14,22 @@ namespace ClasesAbstractas
         #endregion
 
         #region Constructores
+        /// <summary>
+        /// Constructor Universitario
+        /// </summary>
         public Universitario() 
         {
         
         }
 
+        /// <summary>
+        /// Constructor universitario que hereda de la base Persona
+        /// </summary>
+        /// <param name="legajo"></param>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Universitario(int legajo,string nombre, string apellido, string dni, ENacionalidad nacionalidad) : base(nombre,apellido,dni,nacionalidad)
         {
             this.legajo = legajo;

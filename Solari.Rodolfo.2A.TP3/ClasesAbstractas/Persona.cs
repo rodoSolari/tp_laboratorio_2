@@ -24,6 +24,9 @@ namespace ClasesAbstractas
         #endregion
 
         #region Propiedades
+        /// <summary>
+        /// Propiedad de escritura y lectura apellido
+        /// </summary>
         public string Apellido {
             get 
             {
@@ -38,6 +41,9 @@ namespace ClasesAbstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura Dni
+        /// </summary>
         public int DNI { 
             get 
             {
@@ -49,6 +55,9 @@ namespace ClasesAbstractas
             } 
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura Nacionalidad
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get
@@ -61,6 +70,9 @@ namespace ClasesAbstractas
             }
         }
 
+        /// <summary>
+        /// Propiedad de escritura y lectura Nombre
+        /// </summary>
         public string Nombre { 
             get 
             {
@@ -76,6 +88,9 @@ namespace ClasesAbstractas
         
         }
 
+        /// <summary>
+        /// Propiedad de escritura Dni, casteandolo a string y validandolo
+        /// </summary>
         public string StringToDNI {
             set 
             {
@@ -85,11 +100,20 @@ namespace ClasesAbstractas
         #endregion
 
         #region Constructores
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
         public Persona()
         {
 
         }
 
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
@@ -97,11 +121,25 @@ namespace ClasesAbstractas
             this.Nacionalidad = nacionalidad;
         }
 
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) : this(nombre,apellido,nacionalidad)
         {
             this.DNI = dni;
         }
 
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
             this.StringToDNI= dni;
