@@ -104,7 +104,7 @@ namespace ClasesInstanciables
         {
             Texto ArchivoLectura = new Texto();
             string datos;
-            ArchivoLectura.Leer("Jornada.txt",out datos);
+            ArchivoLectura.Leer(@"Jornada.txt",out datos);
             return datos;
         }
 
