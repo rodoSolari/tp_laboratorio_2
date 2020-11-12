@@ -1,0 +1,223 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Excepciones;
+
+namespace ClasesAbstractas
+{
+    public abstract class Persona
+    {
+        #region Atributos
+        private string nombre;
+        private string apellido;
+        private ENacionalidad nacionalidad;
+        private int dni;
+        #endregion
+
+        #region Enumerados
+        public enum ENacionalidad {
+            Argentino,Extranjero
+        }
+        #endregion
+
+        #region Propiedades
+        /// <summary>
+        /// Propiedad de escritura y lectura apellido
+        /// si no es valido el apellido, no se realiza la escritura (set)
+        /// </summary>
+        public string Apellido {
+            get 
+            {
+                return this.apellido;
+            }
+            set 
+            {
+                if (this.validarNombreApellido(value) != null)
+                {
+                    this.apellido = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura Dni
+        /// </summary>
+        public int DNI { 
+            get 
+            {
+                return this.dni;
+            }
+            set 
+            {
+                this.dni = ValidarDni(this.nacionalidad, value);
+            } 
+        }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura Nacionalidad
+        /// </summary>
+        public ENacionalidad Nacionalidad
+        {
+            get
+            {
+                return this.nacionalidad;
+            }
+            set
+            {
+                this.nacionalidad = value;
+            }
+        }
+
+        /// <summary>
+        /// Propiedad de escritura y lectura Nombre
+        /// si no es valido el apellido, no se realiza la escritura (set)
+        /// </summary>
+        public string Nombre { 
+            get 
+            {
+                return this.nombre;
+            }
+            set 
+            {
+                if(this.validarNombreApellido(value) != null)
+                {
+                    this.nombre = value;
+                }
+            }
+        
+        }
+
+        /// <summary>
+        /// Propiedad de escritura Dni, casteandolo a string y validandolo
+        /// </summary>
+        public string StringToDNI {
+            set 
+            {
+                this.dni = ValidarDni(this.nacionalidad,value);
+            }
+        }
+        #endregion
+
+        #region Constructores
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        public Persona()
+        {
+
+        }
+
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="nacionalidad"></param>
+        public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
+        {
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Nacionalidad = nacionalidad;
+        }
+
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
+        public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad) : this(nombre,apellido,nacionalidad)
+        {
+            this.DNI = dni;
+        }
+
+        /// <summary>
+        /// Constructor persona
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="nacionalidad"></param>
+        public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
+        {
+            this.StringToDNI= dni;
+        }
+        #endregion
+
+        #region Metodos
+        /// <summary>
+        /// Devuelve los datos de las personas
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder strPersona = new StringBuilder();
+            strPersona.AppendFormat("NOMBRE COMPLETO: {0}, {1}\n", this.nombre, this.apellido);
+            strPersona.AppendFormat("NACIONALIDAD: {0}\n", this.nacionalidad);
+            return strPersona.ToString();
+
+        }
+
+        /// <summary>
+        /// Valida que el dni sea correcto teniendo en cuenta el numero con respecto a su nacionalidad,
+        /// caso contrario devuelve excepcion NacionalidadInvalidaException
+        /// </summary>
+        /// <param name="nacionanidad"> nacionalidad de la persona </param>
+        /// <param name="dato"> dni de la persona a validar </param>
+        /// <returns></returns>
+        private int ValidarDni(ENacionalidad nacionanidad, int dato)
+        {
+            if ((nacionalidad == ENacionalidad.Argentino && (dato > 90000000 && dato < 99999999)) ||
+            (nacionalidad == ENacionalidad.Extranjero && (dato > 1 && dato < 89999999)))
+            {
+                throw new NacionalidadInvalidaException();
+            }
+            else
+            {
+                return dato;
+            }
+        }
+
+        /// <summary>
+        /// Se valida si el dni es numerico y presenta la cantidad de caracteres, 
+        /// caso contrario devuelve excepcion de DniInvalidoException
+        /// </summary>
+        /// <param name="nacionalidad"> nacionalidad de la persona </param>
+        /// <param name="dato"> dni de la persona a validar </param>
+        /// <returns></returns>
+        private int ValidarDni(ENacionalidad nacionalidad, string dato) 
+        {
+            int datoInt;
+            bool esNumerico = int.TryParse(dato, out datoInt);
+            if (esNumerico && dato.Length <= 8)
+            {
+                return ValidarDni(nacionalidad, datoInt);
+            }
+            else
+            {
+                throw new DniInvalidoException("Error en el formato numerico o la cantidad de digitos del dni ingresado");
+            }
+        }
+
+        /// <summary>
+        /// Validara que los nombres ingresados sean cadenas con caracteres validos, caso contrario no se cargara
+        /// </summary>
+        /// <param name="dato">string a validar </param>
+        /// <returns></returns>
+        private string validarNombreApellido(string dato) 
+        {
+            string respuesta = null;
+            if (!string.IsNullOrWhiteSpace(dato) && Regex.IsMatch(dato,"^[a-zA-Z]"))
+            {
+                respuesta = dato;
+            }
+            return respuesta;
+        }
+        #endregion
+
+    }
+}
