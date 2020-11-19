@@ -8,7 +8,7 @@ using Excepciones;
 
 namespace Archivos
 {
-    public class Texto
+    public class Texto<T> : IArchivo<string>
     {
         #region Metodos
         /// <summary>

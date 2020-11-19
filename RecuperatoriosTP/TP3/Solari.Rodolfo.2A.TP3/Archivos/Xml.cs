@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace Archivos
 {
-    public class Xml<T>
+    public class Xml<T> : IArchivo<T>
     {
         #region metodos
         /// <summary>
@@ -20,6 +20,7 @@ namespace Archivos
         /// <returns></returns>
         public bool Guardar(string archivo, T datos)
         {
+            bool respuesta = false;
             try
             {
                 using (XmlTextWriter archivoEscritura = new XmlTextWriter(archivo, Encoding.UTF8))
@@ -27,12 +28,13 @@ namespace Archivos
                     XmlSerializer serializador = new XmlSerializer(typeof(T));
                     serializador.Serialize(archivoEscritura,datos);
                 }
-                return true;
+                respuesta = true;
             }
             catch (Exception e)
             {
                 throw new ArchivosException(e);
             }
+            return respuesta;
         }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace Archivos
         /// <returns></returns>
         public bool Leer(string archivo, out T datos)
         {
+            bool respuesta = false;
             try
             {
                 using (XmlTextReader archivoLectura = new XmlTextReader(archivo))
@@ -50,12 +53,13 @@ namespace Archivos
                     XmlSerializer serializador = new XmlSerializer(typeof(T));
                     datos = (T)serializador.Deserialize(archivoLectura);
                 }
-                return true;
+                respuesta = true;
             }
             catch (Exception e)
             {
                 throw new ArchivosException(e);
             }
+            return respuesta;
         }
         #endregion
     }

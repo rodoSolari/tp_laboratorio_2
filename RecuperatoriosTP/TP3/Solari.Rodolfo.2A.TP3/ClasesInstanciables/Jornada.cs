@@ -91,7 +91,7 @@ namespace ClasesInstanciables
         /// <returns></returns>
         public static bool Guardar(Jornada jordana)
         {
-            Texto ArchivoEscritura = new Texto();
+            Texto<Jornada> ArchivoEscritura = new Texto<Jornada>();
             bool escritura = ArchivoEscritura.Guardar("Jornada.txt", jordana.ToString());
             return escritura;
         }
@@ -102,7 +102,7 @@ namespace ClasesInstanciables
         /// <returns></returns>
         public static string Leer()
         {
-            Texto ArchivoLectura = new Texto();
+            Texto<Jornada> ArchivoLectura = new Texto<Jornada>();
             string datos;
             ArchivoLectura.Leer("Jornada.txt",out datos);
             return datos;

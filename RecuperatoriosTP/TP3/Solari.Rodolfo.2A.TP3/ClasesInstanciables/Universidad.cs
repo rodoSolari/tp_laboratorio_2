@@ -130,7 +130,7 @@ namespace ClasesInstanciables
         /// Lee un archivo xml que contiene datos de tipo Universidad
         /// </summary>
         /// <returns></returns>
-        public Universidad Leer()
+        public static Universidad Leer()
         {
             Xml<Universidad> ArchivoXmlUniversidad = new Xml<Universidad>();
             Universidad UniversidadLeida = new Universidad();
