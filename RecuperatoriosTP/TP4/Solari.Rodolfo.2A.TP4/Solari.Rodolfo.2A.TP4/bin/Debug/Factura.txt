@@ -1,0 +1,14 @@
+﻿
+DATOS DEL CLIENTE: 
+DNI: 12445124
+Nombre y Apellido: rodolfo solari
+- - - - - - - - - - - - - - - - - - -
+Nombre : Pals Two
+Precio : 250
+Tipo de diccionario: Enciclopedia
+Cantidad : 1
+Paga en efectivo? No
+Importe a pagar : 250
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+

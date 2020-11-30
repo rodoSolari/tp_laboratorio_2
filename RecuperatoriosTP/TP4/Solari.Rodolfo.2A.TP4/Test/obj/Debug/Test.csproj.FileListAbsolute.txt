@@ -1,0 +1,11 @@
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Test.exe.config
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Test.exe
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Test.pdb
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Entidades.dll
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Entidades.pdb
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Entidades.dll.config
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.exe
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.pdb

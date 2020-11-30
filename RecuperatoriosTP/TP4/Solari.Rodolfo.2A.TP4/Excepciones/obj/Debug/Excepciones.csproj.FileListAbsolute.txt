@@ -1,0 +1,18 @@
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.pdb
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\ejemplo\21\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.pdb
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csprojAssemblyReference.cache
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Excepciones\obj\Debug\Excepciones.pdb
