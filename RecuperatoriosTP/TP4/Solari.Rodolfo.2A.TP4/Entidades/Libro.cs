@@ -112,6 +112,7 @@ namespace Entidades
             StringBuilder strLibro = new StringBuilder();
             strLibro.AppendLine("Nombre : " + this.nombre);
             strLibro.AppendLine("Precio : " + this.precio);
+            strLibro.AppendLine("Stock : " + this.stock);
             return strLibro.ToString();
         }
 

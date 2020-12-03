@@ -12,3 +12,17 @@ Importe a pagar : 250
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
+DATOS DEL CLIENTE: 
+DNI: rodolfo
+Nombre y Apellido: solari 15578415
+- - - - - - - - - - - - - - - - - - -
+Nombre : parla e italiano 3
+Precio : 1750
+Stock : 1
+Tipo de diccionario: Visual
+Cantidad : 4
+Paga en efectivo? Si
+Importe a pagar : $6300
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+

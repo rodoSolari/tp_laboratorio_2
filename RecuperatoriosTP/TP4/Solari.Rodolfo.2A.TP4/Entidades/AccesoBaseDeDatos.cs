@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Excepciones;
 
 namespace Entidades
 {
@@ -239,6 +240,10 @@ namespace Entidades
                     this.comando.Parameters.AddWithValue("@cantidadCapitulos", ((Cuento)l).CantidadCapitulos);
 
                 }
+                else
+                {
+                    throw new sinTipoException();
+                }
                 this.comando.Parameters.AddWithValue("@nombre", l.Nombre);
                 this.comando.Parameters.AddWithValue("@precio", l.Precio);
                 this.comando.Parameters.AddWithValue("@idioma", l.Idioma);
@@ -277,8 +282,7 @@ namespace Entidades
         {
             bool todoOk = false;
 
-            string sql = "UPDATE TablaLibros SET nombre = @nombre, precio = @precio, idioma = @idioma, ";
-            sql += "cantidadPaginas = @cantidadPaginas, stock = @stock WHERE id = @id";
+            string sql = "";
 
             try
             {
@@ -287,6 +291,20 @@ namespace Entidades
                 this.comando.CommandType = CommandType.Text;
 
                 this.comando.Connection = this.conexion;
+
+                if (l is Diccionario)
+                {
+                    sql = "UPDATE TablaLibros SET nombre = @nombre, precio = @precio, idioma = @idioma, ";
+                    sql += "cantidadPaginas = @cantidadPaginas, stock = @stock, tipoDiccionario = @tipoDiccionario WHERE id = @id";
+                    this.comando.Parameters.AddWithValue("@tipoDiccionario", ((Diccionario)l).TipoDiccionario);
+                }
+                else if (l is Cuento)
+                {
+                    sql = "UPDATE TablaLibros SET nombre = @nombre, precio = @precio, idioma = @idioma, ";
+                    sql += "cantidadPaginas = @cantidadPaginas, stock = @stock, cantidadCapitulos = @cantidadCapitulos WHERE id = @id";
+                    this.comando.Parameters.AddWithValue("@cantidadCapitulos", ((Cuento)l).CantidadCapitulos);
+
+                }
 
                 this.comando.Parameters.AddWithValue("@id", l.ID);
                 this.comando.Parameters.AddWithValue("@nombre", l.Nombre);

@@ -9,3 +9,5 @@ C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug
 C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.csproj.CopyComplete
 C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.exe
 C:\Users\Montreal\Desktop\tp4\nuevo tp4\tp4\Solari.Rodolfo.2A.TP4\Test\obj\Debug\Test.pdb
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\TP4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Excepciones.dll
+C:\Users\Montreal\Desktop\tp4\nuevo tp4\TP4\Solari.Rodolfo.2A.TP4\Test\bin\Debug\Excepciones.pdb

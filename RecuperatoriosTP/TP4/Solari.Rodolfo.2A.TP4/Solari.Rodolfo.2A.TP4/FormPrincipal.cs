@@ -16,7 +16,6 @@ namespace Solari.Rodolfo._2A.TP4
     public partial class FormPrincipal : Form
     {
         #region Atributos
-        private List<Libro> libros;
         private Libreria libreria;
         private DataTable tablaLibros;
         private AccesoBaseDeDatos objAcceso;
@@ -33,7 +32,6 @@ namespace Solari.Rodolfo._2A.TP4
             InitializeComponent();
             this.limpiarCambios += this.limpiarVentas;
             this.objAcceso = new AccesoBaseDeDatos();
-            this.libros = this.objAcceso.ObtenerListaLibros();
             this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
 
             this.hilo = new Thread(this.mostrarImagenesIdiomas);
@@ -109,30 +107,9 @@ namespace Solari.Rodolfo._2A.TP4
                 }
                 else
                 {
-                    this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
+                    this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
                 }
             }        
-        }
-
-        /// <summary>
-        /// configura la grilla que imprime la base de datos
-        /// </summary>
-        /// <param name="grilla"></param>
-        private void configurarGrilla(DataGridView grilla)
-        {
-            grilla.AlternatingRowsDefaultCellStyle.BackColor = Color.Azure;
-            grilla.ColumnHeadersDefaultCellStyle.Font = new Font(grilla.Font, FontStyle.Italic);
-            grilla.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            grilla.ReadOnly = false;
-            grilla.MultiSelect = false;
-
-            grilla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            grilla.EditMode = DataGridViewEditMode.EditProgrammatically;
-
-            grilla.RowHeadersVisible = false;
-
         }
 
         /// <summary>
@@ -149,19 +126,21 @@ namespace Solari.Rodolfo._2A.TP4
                 DataRow fila = this.tablaLibros.Rows[i];
 
                 int id = int.Parse(fila["id"].ToString());
+                Libro libro = this.objAcceso.ObtenerLibroPorId(id);
 
-                FormLibro form = new FormLibro(this.objAcceso.ObtenerLibroPorId(id));
+                DialogResult result = MessageBox.Show("¿Seguro desea eliminar el producto?\n" + libro.devolverInformacionLibro(), "Eliminar Producto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (form.ShowDialog() == DialogResult.OK)
+                if (result == DialogResult.Yes)
                 {
-                    if (this.objAcceso.EliminarLibro(this.objAcceso.ObtenerLibroPorId(id)))
+                    if (!this.objAcceso.EliminarLibro(libro))
                     {
                         MessageBox.Show("Error", "Error al eliminar el libro", MessageBoxButtons.OK);
                         return;
                     }
-
-                    this.tablaLibros.Rows[i].Delete();
-                    this.tablaLibros.AcceptChanges();
+                    else
+                    {
+                        this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
+                    }
                 }
             }
             catch (Exception ex)
@@ -185,25 +164,23 @@ namespace Solari.Rodolfo._2A.TP4
                 DataRow fila = this.tablaLibros.Rows[i];
                 int id = int.Parse(fila["id"].ToString());
 
-                Libro l = this.objAcceso.ObtenerLibroPorId(id);
+                Libro libro = this.objAcceso.ObtenerLibroPorId(id);
 
-                FormLibro form = new FormLibro(l);
+                FormLibro form = new FormLibro(libro);
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     if (!this.objAcceso.ModificarLibro(form.NuevoLibro))
                     {
-                        MessageBox.Show("Error", "Error al modificar el libro", MessageBoxButtons.OK);
+                        MessageBox.Show("Error al modificar el libro", "Error", MessageBoxButtons.OK);
                         return;
+                    }
+                    else
+                    {
+                        this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
                     }
 
                 }
-                this.tablaLibros.Rows[i]["nombre"] = form.NuevoLibro.Nombre;
-                this.tablaLibros.Rows[i]["cantidadPaginas"] = form.NuevoLibro.CantidadPaginas;
-                this.tablaLibros.Rows[i]["idioma"] = form.NuevoLibro.Idioma;
-                this.tablaLibros.Rows[i]["precio"] = form.NuevoLibro.Precio;
-                this.tablaLibros.Rows[i]["stock"] = form.NuevoLibro.Stock;
-                this.tablaLibros.AcceptChanges();
             }
             catch (Exception ex)
             {
@@ -211,7 +188,6 @@ namespace Solari.Rodolfo._2A.TP4
             }
 
         }
-
 
         /// <summary>
         /// Agrega al carrito el libro marcado en la tabla para realizar la compra
@@ -285,6 +261,48 @@ namespace Solari.Rodolfo._2A.TP4
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.limpiarCambios.Invoke();
+        }
+
+        /// <summary>
+        /// configura la grilla que imprime la base de datos
+        /// </summary>
+        /// <param name="grilla"></param>
+        private void configurarGrilla(DataGridView grilla)
+        {
+            // Coloco color de fondo para las filas
+            this.dataGridViewLibros.RowsDefaultCellStyle.BackColor = Color.Wheat;
+
+            // Alterno colores
+            this.dataGridViewLibros.AlternatingRowsDefaultCellStyle.BackColor = Color.Aquamarine;
+
+            // Pongo color de fondo a la grilla
+            this.dataGridViewLibros.BackgroundColor = Color.Beige;
+
+            // Defino fuente para el encabezado y alineación del encabezado
+            this.dataGridViewLibros.ColumnHeadersDefaultCellStyle.Font = new Font(dataGridViewLibros.Font, FontStyle.Bold);
+            this.dataGridViewLibros.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            // Defino el color de las lineas de separación
+            this.dataGridViewLibros.GridColor = Color.Aqua;
+
+            // La grilla será de sólo lectura
+            this.dataGridViewLibros.ReadOnly = false;
+
+            // No permito la multiselección
+            this.dataGridViewLibros.MultiSelect = false;
+
+            // Selecciono toda la fila a la vez
+            this.dataGridViewLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            // Hago que las columnas ocupen todo el ancho del 'DataGrid'
+            this.dataGridViewLibros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // No permito modificar desde la grilla
+            this.dataGridViewLibros.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            // Saco los encabezados de las filas
+            this.dataGridViewLibros.RowHeadersVisible = false;
+
         }
     }
 }

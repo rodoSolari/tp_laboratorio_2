@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Excepciones
 {
-    public class datosInvalidosException : Exception
+    public class sinTipoException : Exception
     {
-        public datosInvalidosException() : base("Datos invalidos o no ingresados")
+        public sinTipoException() : base("No se ha ingresado el tipo de libro")
         {
 
         }

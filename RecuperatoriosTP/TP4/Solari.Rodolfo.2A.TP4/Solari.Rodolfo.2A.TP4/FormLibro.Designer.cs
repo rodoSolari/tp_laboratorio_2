@@ -40,7 +40,7 @@
             this.cmbIidiomas = new System.Windows.Forms.ComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbTipo = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.lbCapitulos = new System.Windows.Forms.Label();
             this.txtCantidadCapitulos = new System.Windows.Forms.TextBox();
@@ -142,7 +142,7 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(104, 384);
+            this.btnAceptar.Location = new System.Drawing.Point(103, 359);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(116, 37);
             this.btnAceptar.TabIndex = 11;
@@ -152,7 +152,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(278, 384);
+            this.btnCancelar.Location = new System.Drawing.Point(277, 359);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(114, 37);
             this.btnCancelar.TabIndex = 12;
@@ -160,15 +160,15 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label6
+            // lbTipo
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(61, 261);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(40, 16);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Tipo";
+            this.lbTipo.AutoSize = true;
+            this.lbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTipo.Location = new System.Drawing.Point(60, 236);
+            this.lbTipo.Name = "lbTipo";
+            this.lbTipo.Size = new System.Drawing.Size(40, 16);
+            this.lbTipo.TabIndex = 13;
+            this.lbTipo.Text = "Tipo";
             // 
             // cmbTipo
             // 
@@ -177,7 +177,7 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "Diccionario",
             "Cuento"});
-            this.cmbTipo.Location = new System.Drawing.Point(232, 256);
+            this.cmbTipo.Location = new System.Drawing.Point(231, 231);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(121, 21);
             this.cmbTipo.TabIndex = 14;
@@ -187,7 +187,7 @@
             // 
             this.lbCapitulos.AutoSize = true;
             this.lbCapitulos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCapitulos.Location = new System.Drawing.Point(61, 294);
+            this.lbCapitulos.Location = new System.Drawing.Point(60, 269);
             this.lbCapitulos.Name = "lbCapitulos";
             this.lbCapitulos.Size = new System.Drawing.Size(159, 16);
             this.lbCapitulos.TabIndex = 15;
@@ -195,7 +195,7 @@
             // 
             // txtCantidadCapitulos
             // 
-            this.txtCantidadCapitulos.Location = new System.Drawing.Point(232, 293);
+            this.txtCantidadCapitulos.Location = new System.Drawing.Point(231, 268);
             this.txtCantidadCapitulos.Name = "txtCantidadCapitulos";
             this.txtCantidadCapitulos.Size = new System.Drawing.Size(37, 20);
             this.txtCantidadCapitulos.TabIndex = 16;
@@ -204,7 +204,7 @@
             // 
             this.lbTipoDiccionario.AutoSize = true;
             this.lbTipoDiccionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTipoDiccionario.Location = new System.Drawing.Point(61, 335);
+            this.lbTipoDiccionario.Location = new System.Drawing.Point(60, 310);
             this.lbTipoDiccionario.Name = "lbTipoDiccionario";
             this.lbTipoDiccionario.Size = new System.Drawing.Size(147, 16);
             this.lbTipoDiccionario.TabIndex = 17;
@@ -217,7 +217,7 @@
             this.cmbTipoDiccionario.Items.AddRange(new object[] {
             "Enciclopedia",
             "Visual"});
-            this.cmbTipoDiccionario.Location = new System.Drawing.Point(232, 330);
+            this.cmbTipoDiccionario.Location = new System.Drawing.Point(231, 305);
             this.cmbTipoDiccionario.Name = "cmbTipoDiccionario";
             this.cmbTipoDiccionario.Size = new System.Drawing.Size(121, 21);
             this.cmbTipoDiccionario.TabIndex = 18;
@@ -227,13 +227,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(474, 453);
+            this.ClientSize = new System.Drawing.Size(474, 424);
             this.Controls.Add(this.cmbTipoDiccionario);
             this.Controls.Add(this.lbTipoDiccionario);
             this.Controls.Add(this.txtCantidadCapitulos);
             this.Controls.Add(this.lbCapitulos);
             this.Controls.Add(this.cmbTipo);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbTipo);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cmbIidiomas);
@@ -269,7 +269,7 @@
         private System.Windows.Forms.ComboBox cmbIidiomas;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbTipo;
         private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.Label lbCapitulos;
         private System.Windows.Forms.TextBox txtCantidadCapitulos;

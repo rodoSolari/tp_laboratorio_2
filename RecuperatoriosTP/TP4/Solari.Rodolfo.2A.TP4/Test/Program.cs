@@ -73,7 +73,7 @@ namespace Test
 
             //Venta de un diccionario
             Console.WriteLine("**** Venta de diccionario ****\n");
-            Diccionario dic = new Diccionario(1, "Enciclopedia portuguesa", 500, "portugues", 2000,20, "Visual");
+            Diccionario dic = new Diccionario(1, "Enciclopedia portuguesa", 500, "portugues", 2000, 20, "Visual");
             Venta venta = new Venta(dic);
             venta.Efectivo = true;  //Obtiene un descuento del 10%
             venta.Vender(dic, 3);

@@ -102,7 +102,7 @@ namespace Entidades
         /// <param name="cantidad"></param>
         public void Vender(Libro libro,int cantidad)
         {
-
+            this.cantidad = cantidad;
             libro.Stock -= cantidad;
             this.precioFinal = cantidad * (int)libro.Precio;
             if (this.efectivo)

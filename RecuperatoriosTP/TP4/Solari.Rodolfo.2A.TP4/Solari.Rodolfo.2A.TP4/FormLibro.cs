@@ -34,14 +34,32 @@ namespace Solari.Rodolfo._2A.TP4
             InitializeComponent();
         }
 
-        public FormLibro(Libro l) : this()
+        /// <summary>
+        /// Constructor modificar libro
+        /// </summary>
+        /// <param name="libro"></param>
+        public FormLibro(Libro libro) : this()
         {
-            this.libro = l;
-            this.txtNombre.Text = this.libro.Nombre;
-            this.cmbIidiomas.Text = this.libro.Idioma;
-            this.txtCantidadPaginas.Text = this.libro.CantidadPaginas.ToString();
-            this.txtPrecio.Text = this.libro.Precio.ToString();
-            this.txtStock.Text = this.libro.Stock.ToString();
+            this.libro = libro;
+            this.txtNombre.Text = libro.Nombre;
+            this.cmbIidiomas.Text = libro.Idioma;
+            this.txtCantidadPaginas.Text = libro.CantidadPaginas.ToString();
+            this.txtPrecio.Text = libro.Precio.ToString();
+            this.txtStock.Text = libro.Stock.ToString();
+            
+            //Se toman los datos del tipo de libro pero no se mostraran
+            if(libro is Diccionario)
+            {
+                cmbTipo.Text = "Diccionario";
+                //cmbTipoDiccionario.Visible = true;
+                cmbTipoDiccionario.SelectedItem = ((Diccionario)libro).TipoDiccionario;
+            }
+            else
+            {
+                cmbTipo.Text = "Cuento";
+                //txtCantidadCapitulos.Visible = true;
+                txtCantidadCapitulos.Text = ((Cuento)libro).CantidadCapitulos.ToString();
+            }
         }
         #endregion
 
@@ -77,23 +95,23 @@ namespace Solari.Rodolfo._2A.TP4
             {
                 if (cmbTipo.Text == "Diccionario")
                 {
-                    this.libro = new Diccionario(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), cmbTipo.Text);
+                    this.libro = new Diccionario(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), ((Diccionario)this.libro).TipoDiccionario);
                 }
                 else
                 {
-                    this.libro = new Cuento(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), int.Parse(cmbTipo.Text));
+                    this.libro = new Cuento(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), ((Cuento)this.libro).CantidadCapitulos);
                     
                 }
             }
             catch(Exception)
             {
-                
+                throw new Exception();
             }
             this.DialogResult = DialogResult.OK;
         }
 
         /// <summary>
-        /// carga el formulario con botones no visibles, segun el tipo de libro
+        /// carga el formulario con botones no visibles, segun el tipo de libro marcado de la tabla
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
