@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using Excepciones;
 
 namespace Solari.Rodolfo._2A.TP4
 {
@@ -46,18 +47,17 @@ namespace Solari.Rodolfo._2A.TP4
             this.txtCantidadPaginas.Text = libro.CantidadPaginas.ToString();
             this.txtPrecio.Text = libro.Precio.ToString();
             this.txtStock.Text = libro.Stock.ToString();
-            
-            //Se toman los datos del tipo de libro pero no se mostraran
-            if(libro is Diccionario)
+
+            //Se toman los datos del tipo de libro pero no se podra modificar el tipo, si el tipo de diccionario o cuento
+            cmbTipo.Enabled = false;
+            if (libro is Diccionario)
             {
                 cmbTipo.Text = "Diccionario";
-                //cmbTipoDiccionario.Visible = true;
                 cmbTipoDiccionario.SelectedItem = ((Diccionario)libro).TipoDiccionario;
             }
             else
             {
                 cmbTipo.Text = "Cuento";
-                //txtCantidadCapitulos.Visible = true;
                 txtCantidadCapitulos.Text = ((Cuento)libro).CantidadCapitulos.ToString();
             }
         }
@@ -65,7 +65,7 @@ namespace Solari.Rodolfo._2A.TP4
 
         #region Metodos
         /// <summary>
-        /// 
+        /// Cancela la modificacion y cierra el formulario
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,18 +95,22 @@ namespace Solari.Rodolfo._2A.TP4
             {
                 if (cmbTipo.Text == "Diccionario")
                 {
-                    this.libro = new Diccionario(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), ((Diccionario)this.libro).TipoDiccionario);
+                    this.libro = new Diccionario(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), cmbTipoDiccionario.Text);
+                }
+                else if(cmbTipo.Text == "Cuento")
+                {
+                    this.libro = new Cuento(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), int.Parse(txtCantidadCapitulos.Text));
                 }
                 else
                 {
-                    this.libro = new Cuento(idLibro, txtNombre.Text, int.Parse(txtCantidadPaginas.Text), cmbIidiomas.Text, float.Parse(txtPrecio.Text), int.Parse(txtStock.Text), ((Cuento)this.libro).CantidadCapitulos);
-                    
+                    throw new sinTipoException();
                 }
             }
             catch(Exception)
             {
-                throw new Exception();
+                throw new datosInvalidosException();
             }
+            
             this.DialogResult = DialogResult.OK;
         }
 

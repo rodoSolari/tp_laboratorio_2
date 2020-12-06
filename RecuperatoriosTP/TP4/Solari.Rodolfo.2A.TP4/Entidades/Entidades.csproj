@@ -45,7 +45,7 @@
     <Compile Include="Cliente.cs" />
     <Compile Include="Cuento.cs" />
     <Compile Include="Diccionario.cs" />
-    <Compile Include="Factura.cs" />
+    <Compile Include="Extension.cs" />
     <Compile Include="Libreria.cs" />
     <Compile Include="Libro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

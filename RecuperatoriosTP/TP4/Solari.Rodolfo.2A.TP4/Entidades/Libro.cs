@@ -85,12 +85,12 @@ namespace Entidades
         /// <summary>
         /// Constructor libro parametrizado
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="cantidadPaginas"></param>
-        /// <param name="idioma"></param>
-        /// <param name="precio"></param>
-        /// <param name="stock"></param>
+        /// <param name="id">id</param>
+        /// <param name="nombre">nombre</param>
+        /// <param name="cantidadPaginas">cantidad de paginas</param>
+        /// <param name="idioma">idiomas</param>
+        /// <param name="precio">precio</param>
+        /// <param name="stock">stock</param>
         public Libro(int id, string nombre, int cantidadPaginas, string idioma, float precio, int stock)
         {
             this.id = id;
@@ -112,7 +112,6 @@ namespace Entidades
             StringBuilder strLibro = new StringBuilder();
             strLibro.AppendLine("Nombre : " + this.nombre);
             strLibro.AppendLine("Precio : " + this.precio);
-            strLibro.AppendLine("Stock : " + this.stock);
             return strLibro.ToString();
         }
 

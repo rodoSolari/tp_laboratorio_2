@@ -18,6 +18,7 @@ namespace Entidades
         /// <returns></returns>
         public bool Guardar(string archivo, T datos)
         {
+            bool respuesta = false;
             try
             {
                 using (XmlTextWriter archivoEscritura = new XmlTextWriter(archivo, Encoding.UTF8))
@@ -25,12 +26,14 @@ namespace Entidades
                     XmlSerializer serializador = new XmlSerializer(typeof(T));
                     serializador.Serialize(archivoEscritura, datos);
                 }
-                return true;
+                respuesta = true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new ArchivosException();
+                Console.WriteLine(ex.Message);
+                //throw new ArchivosException();
             }
+            return respuesta;
         }
 
         /// <summary>
@@ -50,7 +53,7 @@ namespace Entidades
                 }
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArchivosException();
             }

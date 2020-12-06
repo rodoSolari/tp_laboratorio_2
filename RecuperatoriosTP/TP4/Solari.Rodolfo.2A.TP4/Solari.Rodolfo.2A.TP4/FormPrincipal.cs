@@ -15,6 +15,7 @@ namespace Solari.Rodolfo._2A.TP4
 {
     public partial class FormPrincipal : Form
     {
+
         #region Atributos
         private Libreria libreria;
         private DataTable tablaLibros;
@@ -23,42 +24,52 @@ namespace Solari.Rodolfo._2A.TP4
         private Thread hilo;
 
         public delegate void deshacerCambios();
-        public event deshacerCambios limpiarCambios;
+        public event deshacerCambios eventoLimpiarCambios;
+
+        public delegate void cerrar();
+        public event cerrar eventoSalir;
 
         #endregion
         #region Constructores
         public FormPrincipal()
         {
             InitializeComponent();
-            this.limpiarCambios += this.limpiarVentas;
+            //eventos
+            this.eventoLimpiarCambios += this.limpiarVentas;
+            this.eventoSalir += this.cerrarForm;
+
+            //base de datos y tabla
             this.objAcceso = new AccesoBaseDeDatos();
             this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
 
+            //hilo
             this.hilo = new Thread(this.mostrarImagenesIdiomas);
             this.hilo.Start();
             this.pictureBoxImagenes.ImageLocation = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\francia.jpg";
 
+            //venta y libreria
             this.venta = new Venta();
             this.libreria = new Libreria();
         }
         #endregion
 
-        #region Metodos
+
         /// <summary>
         /// muestra las banderas de los idiomas, cambiandose constantemente
         /// </summary>
         public void mostrarImagenesIdiomas()
         {
             int i = 0;
-            object[] arrayBanderas = new object[4];
+            object[] arrayBanderas = new object[5];
             arrayBanderas[0] = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\francia.jpg";
             arrayBanderas[1] = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\alemania.jpg";
             arrayBanderas[2] = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\estadosUnidos.jpg";
             arrayBanderas[3] = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\brasil.png";
+            arrayBanderas[4] = AppDomain.CurrentDomain.BaseDirectory + @"\BanderasIdioma\italia.png";
 
             while (true)
             {
-                Thread.Sleep(2000);
+                Thread.Sleep(1000);
                 this.pictureBoxImagenes.ImageLocation = (string)arrayBanderas[i];
 
                 if (i == arrayBanderas.Length-1)
@@ -75,7 +86,8 @@ namespace Solari.Rodolfo._2A.TP4
         /// </summary>
         public void limpiarVentas()
         {
-            richTextBoxFactura.Text = "";
+            richTextBoxFactura.Clear();
+            this.tablaLibros.RejectChanges();
             this.libreria.ListaVentas.Clear();
         }
 
@@ -97,23 +109,31 @@ namespace Solari.Rodolfo._2A.TP4
         /// <param name="e"></param>
         private void BtnAgregarNuevoLibro_Click(object sender, EventArgs e)
         {
-            FormLibro formularioNuevoLibro = new FormLibro();
-            if(formularioNuevoLibro.ShowDialog() == DialogResult.OK)
+            try
             {
-                if (!this.objAcceso.InsertarLibro(formularioNuevoLibro.NuevoLibro))
+                FormLibro formularioNuevoLibro = new FormLibro();
+                if (formularioNuevoLibro.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Error al insertar un nuevo libro", "Error:", MessageBoxButtons.OK);
-                    return;
+                    if (!this.objAcceso.InsertarLibro(formularioNuevoLibro.NuevoLibro))
+                    {
+                        MessageBox.Show("Error al insertar un nuevo libro", "Error:", MessageBoxButtons.OK);
+                        return;
+                    }
+                    else
+                    {
+                        this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
+                        this.dataGridViewLibros.DataSource = this.tablaLibros;
+                    }
                 }
-                else
-                {
-                    this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
-                }
-            }        
+            }
+            catch(datosInvalidosException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
-        /// abre el formulario de libro para eliminar el libro marcado en la tabla
+        /// Muestra un mensaje por pantalla mostrando lo datos del libro asignado y preguntando si lo desea eliminar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -139,11 +159,12 @@ namespace Solari.Rodolfo._2A.TP4
                     }
                     else
                     {
-                        this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
+                        this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
+                        this.dataGridViewLibros.DataSource = this.tablaLibros;
                     }
                 }
             }
-            catch (Exception ex)
+            catch (EliminarException ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -177,7 +198,8 @@ namespace Solari.Rodolfo._2A.TP4
                     }
                     else
                     {
-                        this.dataGridViewLibros.DataSource = this.objAcceso.ObtenerTablaLibros();
+                        this.tablaLibros = this.objAcceso.ObtenerTablaLibros();
+                        this.dataGridViewLibros.DataSource = this.tablaLibros;
                     }
 
                 }
@@ -190,7 +212,7 @@ namespace Solari.Rodolfo._2A.TP4
         }
 
         /// <summary>
-        /// Agrega al carrito el libro marcado en la tabla para realizar la compra
+        /// Agrega al carrito el libro marcado en la tabla para realizar la compra y lo imprime en la richTextBox
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -199,18 +221,18 @@ namespace Solari.Rodolfo._2A.TP4
             try
             {
                 int i = this.dataGridViewLibros.SelectedRows[0].Index;
+
                 DataRow fila = this.tablaLibros.Rows[i];
 
-                int id = int.Parse(fila["id"].ToString());
+                Libro libro = obtenerLibroTabla(fila);
 
-                Libro libro = this.objAcceso.ObtenerLibroPorId(id);
-
-                FormVenta form = new FormVenta(libro,this.venta);
+                FormVenta form = new FormVenta(libro);
 
                 if (form.ShowDialog() == DialogResult.OK)
                 {
-                    this.libreria.ListaVentas.Add(this.venta);
-                    richTextBoxFactura.Text += this.venta.DevolverInformacionVenta(libro);
+                    this.libreria.ListaVentas.Add(form.Venta);
+                    richTextBoxFactura.Text += form.Venta.DevolverInformacionVenta(libro);
+                    this.tablaLibros.Rows[i]["stock"] = libro.Stock;
                 }
             }
             catch (Exception ex)
@@ -218,49 +240,75 @@ namespace Solari.Rodolfo._2A.TP4
                 MessageBox.Show(ex.Message);
             }
         }
-        #endregion
 
         /// <summary>
-        /// cierra el formulario principal y aborta el hilo de imagenes
+        /// Devuelve el libro de la fila seleccionada de la tabla
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSalir_Click(object sender, EventArgs e)
+        /// <param name="fila"></param>
+        /// <returns></returns>
+        private Libro obtenerLibroTabla(DataRow fila)
         {
-            this.hilo.Abort();
-            this.Close();
+            int id = int.Parse(fila["id"].ToString());
+            string nombre = fila["nombre"].ToString();
+            int cantidadPaginas = int.Parse(fila["cantidadPaginas"].ToString());
+            string idioma = fila["idioma"].ToString();
+            int precio = int.Parse(fila["precio"].ToString());
+            int stock = int.Parse(fila["stock"].ToString());
+            Libro libro;
+
+            if (string.IsNullOrEmpty(fila["tipoDiccionario"].ToString()))
+            {
+                libro = new Cuento(id, nombre, cantidadPaginas, idioma, precio, stock, int.Parse(fila["cantidadCapitulos"].ToString()));
+            }
+            else
+            {
+                libro = new Diccionario(id, nombre, cantidadPaginas, idioma, precio, stock, fila["tipoDiccionario"].ToString());
+            }
+
+            return libro;
         }
 
         /// <summary>
-        /// Guarda la factura en un archivo texto y limpia la lista de ventas
+        /// Abre el formulario para realizar la factura del cliente, al realizar la factura,
+        /// se modifican los stocks de los libros comprados
+        /// Si no se realiza la venta, se deshacen los cambios
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            if (this.libreria.ListaVentas.Count != 0)
             {
-                FormFacturaCliente form = new FormFacturaCliente(this.libreria);
-                if (form.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    this.libreria.ListaVentas.Clear();
-                }
-                richTextBoxFactura.Text = " ";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+                    FormFacturaCliente form = new FormFacturaCliente(this.libreria);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        foreach (Venta venta in this.libreria.ListaVentas)
+                        {
+                            // al realizar la factura, confirmo la venta y actualizo el stock de cada libro
+                            this.objAcceso.ModificarLibro(venta.Libro);
+                        }
+                        this.tablaLibros.AcceptChanges();
 
-        /// <summary>
-        /// invoca el metodo limpiar Cambios para deshacer la venta
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnLimpiar_Click(object sender, EventArgs e)
-        {
-            this.limpiarCambios.Invoke();
+                    }
+                    else   //si cancela la compra, se reinicia
+                    {
+                        this.tablaLibros.RejectChanges();
+                    }
+                    this.libreria.ListaVentas.Clear();
+                    richTextBoxFactura.Clear();
+                }
+                catch (Exception ex)
+                {
+                    this.tablaLibros.RejectChanges();
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay compras realizadas, debe agregar al carrito un libro para realizar la compra");
+            }
         }
 
         /// <summary>
@@ -304,5 +352,40 @@ namespace Solari.Rodolfo._2A.TP4
             this.dataGridViewLibros.RowHeadersVisible = false;
 
         }
+
+        /// <summary>
+        /// invoca el metodo limpiar Cambios para deshacer la venta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.eventoLimpiarCambios.Invoke();
+        }
+
+        /// <summary>
+        /// Cierra el formulario principal, y si hay una venta sin realizar la factura, se deshacen los cambios
+        /// </summary>
+        public void cerrarForm()
+        {
+            DialogResult result = MessageBox.Show("¿Seguro que desea salir? Si tiene ventas sin realizar la compra volveran a la tabla\n", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.tablaLibros.RejectChanges();
+                this.hilo.Abort();
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// cierra el formulario principal y aborta el hilo de imagenes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.eventoSalir.Invoke();
+        }
+
     }
 }

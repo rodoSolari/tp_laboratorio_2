@@ -130,6 +130,7 @@
             this.checkBoxEfectivo.Size = new System.Drawing.Size(15, 14);
             this.checkBoxEfectivo.TabIndex = 21;
             this.checkBoxEfectivo.UseVisualStyleBackColor = true;
+            this.checkBoxEfectivo.CheckedChanged += new System.EventHandler(this.checkBoxEfectivo_CheckedChanged);
             // 
             // cmbCantidad
             // 

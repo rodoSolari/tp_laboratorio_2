@@ -24,13 +24,13 @@ namespace Entidades
         /// <summary>
         /// Constructor diccionario parametrizado
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="cantidadPaginas"></param>
-        /// <param name="idioma"></param>
-        /// <param name="precio"></param>
-        /// <param name="stock"></param>
-        /// <param name="tipoDiccionario"></param>
+        /// <param name="id">id</param>
+        /// <param name="nombre">nombre</param>
+        /// <param name="cantidadPaginas">cantidad de paginas</param>
+        /// <param name="idioma">idiomas</param>
+        /// <param name="precio">precio</param>
+        /// <param name="stock">stock</param>
+        /// <param name="tipoDiccionario">tipo de diccionario</param>
         public Diccionario(int id, string nombre, int cantidadPaginas, string idioma, float precio, int stock, string tipoDiccionario) : base(id, nombre, cantidadPaginas, idioma, precio, stock)
         {
             this.tipoDiccionario = tipoDiccionario;

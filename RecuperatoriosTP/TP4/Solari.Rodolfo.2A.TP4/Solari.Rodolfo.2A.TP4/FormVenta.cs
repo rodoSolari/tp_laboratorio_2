@@ -16,29 +16,28 @@ namespace Solari.Rodolfo._2A.TP4
         #region Atributos
         private Libro libroComprar;
         private Venta venta;
-        private int cantidad;
+
         #endregion
 
         #region Constructor
         public FormVenta()
         {
+            this.venta = new Venta();
             InitializeComponent();
         }
 
-        public FormVenta(Libro libro, Venta venta) : this()
+        public FormVenta(Libro libro) : this()
         {
             this.libroComprar = libro;
-            this.venta = venta;
         }
 
-        public int Cantidad
+        public Venta Venta
         {
             get
             {
-                return this.cantidad;
+                return this.venta;
             }
         }
-
         #endregion
 
         #region Metodos
@@ -72,7 +71,16 @@ namespace Solari.Rodolfo._2A.TP4
         {
             lbNombreLibro.Text = this.libroComprar.Nombre;
             lbPrecioLibro.Text = this.libroComprar.Precio.ToString();
-            this.lbImporte.Text = (Convert.ToInt32(lbPrecioLibro.Text) * Convert.ToInt32(cmbCantidad.Text)).ToString();
+            double precioTotal = Convert.ToDouble(lbPrecioLibro.Text) * Convert.ToDouble(cmbCantidad.Text);
+
+            if (checkBoxEfectivo.Checked)
+            {
+                precioTotal -= (precioTotal * 0.1);
+            }
+
+            this.lbImporte.Text = (precioTotal).ToString();
+            
+
         }
 
         /// <summary>
@@ -96,10 +104,9 @@ namespace Solari.Rodolfo._2A.TP4
                     return;
                 }
             }
-            catch(Exception)  // GENERAR EXCEPCION PROPIA
-
+            catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -116,6 +123,16 @@ namespace Solari.Rodolfo._2A.TP4
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Actualiza el importe total al modificar el estado del checkBox efectivo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void checkBoxEfectivo_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarImporte();
         }
     }
 }

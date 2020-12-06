@@ -1,0 +1,31 @@
+
+--- LIBRERIA DE IDIOMAS ---
+
+DATOS DEL CLIENTE: 
+DNI: 14554214
+Nombre y Apellido: rodolfo solari
+
+- - - - - - - - - - - - - - - - - - -
+
+
+Nombre : Domani 1
+Precio : 2300
+Tipo de diccionario: Visual
+Cantidad : 1
+Paga en efectivo? No
+Importe a pagar : $ 2300,00
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Nombre : Pals Three
+Precio : 300
+Tipo de diccionario: Tecnico
+Cantidad : 1
+Paga en efectivo? Si
+Importe a pagar : $ 270,00
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+Horario :6/12/2020 15:42:15

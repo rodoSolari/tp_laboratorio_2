@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnCompraTexto = new System.Windows.Forms.Button();
             this.BtnCompraXML = new System.Windows.Forms.Button();
+            this.btnCancelarCompra = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNombre
@@ -121,12 +122,24 @@
             this.BtnCompraXML.UseVisualStyleBackColor = false;
             this.BtnCompraXML.Click += new System.EventHandler(this.BtnCompraXML_Click);
             // 
+            // btnCancelarCompra
+            // 
+            this.btnCancelarCompra.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnCancelarCompra.Location = new System.Drawing.Point(113, 318);
+            this.btnCancelarCompra.Name = "btnCancelarCompra";
+            this.btnCancelarCompra.Size = new System.Drawing.Size(134, 37);
+            this.btnCancelarCompra.TabIndex = 23;
+            this.btnCancelarCompra.Text = "Cancelar compra";
+            this.btnCancelarCompra.UseVisualStyleBackColor = false;
+            this.btnCancelarCompra.Click += new System.EventHandler(this.btnCancelarCompra_Click);
+            // 
             // FormFacturaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleGreen;
-            this.ClientSize = new System.Drawing.Size(360, 327);
+            this.ClientSize = new System.Drawing.Size(368, 388);
+            this.Controls.Add(this.btnCancelarCompra);
             this.Controls.Add(this.btnCompraTexto);
             this.Controls.Add(this.BtnCompraXML);
             this.Controls.Add(this.label1);
@@ -139,7 +152,6 @@
             this.Name = "FormFacturaCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFacturaCliente";
-            this.Load += new System.EventHandler(this.FormFacturaCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +168,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCompraTexto;
         private System.Windows.Forms.Button BtnCompraXML;
+        private System.Windows.Forms.Button btnCancelarCompra;
     }
 }

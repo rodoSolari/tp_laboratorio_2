@@ -12,7 +12,6 @@ namespace Entidades
         private string dni;
         private string nombre;
         private string apellido;
-        private string domicilio;
         #endregion
 
         #region Constructores
@@ -27,9 +26,9 @@ namespace Entidades
         /// <summary>
         /// Constructor cliente parametrizado
         /// </summary>
-        /// <param name="dni"></param>
-        /// <param name="nombre"></param>
-        /// <param name="apellido"></param>
+        /// <param name="dni">dni</param>
+        /// <param name="nombre">nombre</param>
+        /// <param name="apellido">apellido</param>
         public Cliente(string dni, string nombre, string apellido)
         {
             this.dni = dni;
@@ -96,7 +95,7 @@ namespace Entidades
             strCliente.AppendLine("DATOS DEL CLIENTE: ");
             strCliente.AppendLine("DNI: " + this.dni);
             strCliente.AppendLine("Nombre y Apellido: " + this.nombre +" "+ this.apellido);
-            strCliente.AppendLine("- - - - - - - - - - - - - - - - - - -");
+            strCliente.AppendLine("\n- - - - - - - - - - - - - - - - - - -\n");
             return strCliente.ToString();
         }
 

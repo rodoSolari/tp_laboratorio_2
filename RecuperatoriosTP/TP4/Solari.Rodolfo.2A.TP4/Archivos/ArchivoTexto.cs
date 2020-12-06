@@ -22,10 +22,11 @@ namespace Entidades
                 using (StreamWriter archivoEscritura = new StreamWriter(archivo, true))
                 {
                     archivoEscritura.WriteLine(datos);
+                    archivoEscritura.WriteLine("Horario :" + DateTime.Now);
                     return true;
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArchivosException();
             }
@@ -47,7 +48,7 @@ namespace Entidades
                 }
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw new ArchivosException();
             }

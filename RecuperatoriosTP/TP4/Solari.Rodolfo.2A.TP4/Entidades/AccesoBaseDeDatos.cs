@@ -34,6 +34,7 @@ namespace Entidades
 
         /// <summary>
         /// Devuelve true si la conexion de la base de datos se realiza con exito, caso contrario devuelve false
+        /// Utilizado para el test de consola
         /// </summary>
         /// <returns></returns>
         public bool ProbarConexion()
@@ -60,7 +61,7 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Devuelve la lista de libros de la base de datos, y segun el tipo de libro, los agrega a la lista
+        /// Devuelve la lista de libros de la base de datos, y segun el tipo de libro, los agrega a la lista  (Se utiliza para el test de consola)
         /// </summary>
         /// <returns></returns>
         public List<Libro> ObtenerListaLibros()
@@ -154,11 +155,11 @@ namespace Entidades
         /// <summary>
         /// devuelve el libro segun el id ingresado
         /// </summary>
-        /// <param name="nombre"></param>
+        /// <param name="nombre">nombre</param>
         /// <returns></returns>
         public Libro ObtenerLibroPorId(int id)
         {
-            Libro l = null;
+            Libro libro = null;
 
             try
             {
@@ -180,12 +181,12 @@ namespace Entidades
                 {
                     if (oDr.IsDBNull(6)) // si es tipo diccionario
                     {
-                        l = new Diccionario(oDr.GetInt32(0), oDr.GetString(1), oDr.GetInt32(2),
+                        libro = new Diccionario(oDr.GetInt32(0), oDr.GetString(1), oDr.GetInt32(2),
                             oDr.GetString(3), (float)(oDr.GetDouble(4)), oDr.GetInt32(5), oDr.GetString(7));
                     }
                     else
                     {
-                        l = new Cuento(oDr.GetInt32(0), oDr.GetString(1), oDr.GetInt32(2),
+                        libro = new Cuento(oDr.GetInt32(0), oDr.GetString(1), oDr.GetInt32(2),
                             oDr.GetString(3), (float)(oDr.GetDouble(4)), oDr.GetInt32(5), oDr.GetInt32(6));
                     }
                 }
@@ -195,6 +196,7 @@ namespace Entidades
 
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
             }
             finally
             {
@@ -204,13 +206,13 @@ namespace Entidades
                 }
             }
 
-            return l;
+            return libro;
         }
 
         /// <summary>
         /// devuelve true si se pudo insertar el libro a la base de datos, caso contrario devuelve false
         /// </summary>
-        /// <param name="l"></param>
+        /// <param name="l">libro</param>
         /// <returns></returns>
         public bool InsertarLibro(Libro l)
         {
@@ -258,7 +260,7 @@ namespace Entidades
 
                 todoOk = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 todoOk = false;
             }
@@ -276,7 +278,7 @@ namespace Entidades
         /// <summary>
         /// devuelve true si se modifico el libro, caso contrario devuelve false
         /// </summary>
-        /// <param name="l"></param>
+        /// <param name="l">libro</param>
         /// <returns></returns>
         public bool ModificarLibro(Libro l)
         {
@@ -340,7 +342,7 @@ namespace Entidades
         /// <summary>
         /// elimina el libro de la base de datos, caso contrario devuelve false
         /// </summary>
-        /// <param name="l"></param>
+        /// <param name="l">libro</param>
         /// <returns></returns>
         public bool EliminarLibro(Libro l)
         {

@@ -21,21 +21,49 @@ namespace TestUnitarios
         }
 
         /// <summary>
-        /// Crea un cuento con un nombre no valido
+        /// Prueba la insercion de un libro de tipo diccionario a la base de datos
         /// </summary>
         [TestMethod]
-        public void CrearCuento()
+        public void TestInsertarLibroTipoDiccionario()
         {
-            Cuento cuento = new Cuento(2,null,300,"ingles",4000,40,5);
-            bool cuentoValido = cuento.Nombre != null;
-            Assert.IsFalse(cuentoValido);
+            AccesoBaseDeDatos ad = new AccesoBaseDeDatos();
+            Diccionario diccionario = new Diccionario(2, "Enciclopedia Universal", 500, "ingles", 2000, 4, "Visual");
+            bool insertarLibro = ad.InsertarLibro(diccionario);
+
+            Assert.IsTrue(insertarLibro);
+        }
+
+        /// <summary>
+        /// Insertar y eliminar libro de tipo cuento
+        /// </summary>
+        [TestMethod]
+        public void TestInsertarYEliminarLibroTipoCuento()
+        {
+            AccesoBaseDeDatos ad = new AccesoBaseDeDatos();
+            Cuento cuento = new Cuento(2, "Enciclopedia Universal", 500, "ingles", 2000, 4, 30);
+            ad.InsertarLibro(cuento);
+
+            bool eliminoLibro = ad.EliminarLibro(cuento);
+            Assert.IsTrue(eliminoLibro);
+        }
+
+        /// <summary>
+        /// Se prueba con un libro que contiene un id que no esta ingresado en la base de datos
+        /// devuelve null
+        /// </summary>
+        [TestMethod]
+        public void TestobtenerLibroNoIngresado()
+        {
+            AccesoBaseDeDatos ad = new AccesoBaseDeDatos();
+            Libro libro = ad.ObtenerLibroPorId(70000);
+            Assert.IsNull(libro);
         }
 
         /// <summary>
         /// prueba de conexion de base de datos
         /// </summary>
         [TestMethod]
-        public void probarConexionBaseDeDatos()
+        public void TestprobarConexionBaseDeDatos()
         {
             AccesoBaseDeDatos ad = new AccesoBaseDeDatos();
             Assert.IsTrue(ad.ProbarConexion());

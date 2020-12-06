@@ -16,11 +16,11 @@ namespace Test
 
             if (ad.ProbarConexion())
             {
-                Console.WriteLine("se conectó a la base de datos");
+                Console.WriteLine("se conectó a la base de datos\n");
             }
             else
             {
-                Console.WriteLine("no se conectó a la base de datos");
+                Console.WriteLine("no se conectó a la base de datos\n");
             }
 
             Console.WriteLine("**** Imprimo un libro con el id 6 ****\n");
@@ -35,7 +35,7 @@ namespace Test
             foreach (Libro item in lista)
             {
                 Console.WriteLine(item.devolverInformacionLibro());
-                Console.WriteLine("- - - - - - - - - - - - - - - - -");
+                Console.WriteLine("- - - - - - - - - - - - - - - - -\n");
             }
 
             //Agrego un objeto cuento
@@ -52,11 +52,11 @@ namespace Test
 
             if (agrego)
             {
-                Console.WriteLine("se agregó");
+                Console.WriteLine("se agregó a la base de datos");
             }
             else
             {
-                Console.WriteLine("no se agregó");
+                Console.WriteLine("no se agregó a la base de datos");
             }
 
             //eliminar libro
@@ -64,11 +64,11 @@ namespace Test
             bool elimino = ad.EliminarLibro(objetoCuento);
             if (elimino)
             {
-                Console.WriteLine("se elimina");
+                Console.WriteLine("se elimina con exito\n");
             }
             else
             {
-                Console.WriteLine("no se elimina");
+                Console.WriteLine("no se elimin\n");
             }
 
             //Venta de un diccionario
@@ -80,6 +80,7 @@ namespace Test
             Console.WriteLine(venta.DevolverInformacionVenta(dic));
 
             Console.ReadKey(true);
+
         }
     }
 }

@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
+
 
 namespace Entidades
 {
+    [XmlInclude(typeof(Libreria))]
+    [XmlInclude(typeof(Venta))]
+    [XmlInclude(typeof(Cuento))]
+    [XmlInclude(typeof(Diccionario))]
     public class Libreria
     {
+
         #region Atributos
         private List<Venta> listaVentas;
         #endregion
@@ -31,6 +38,10 @@ namespace Entidades
             get
             {
                 return this.listaVentas;
+            }
+            set
+            {
+                this.listaVentas = value;
             }
         }
         #endregion

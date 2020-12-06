@@ -23,13 +23,13 @@ namespace Entidades
         /// <summary>
         /// Constructor cuento parametrizado
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="nombre"></param>
-        /// <param name="cantidadPaginas"></param>
-        /// <param name="idioma"></param>
-        /// <param name="precio"></param>
-        /// <param name="stock"></param>
-        /// <param name="cantidadCapitulos"></param>
+        /// <param name="id">id</param>
+        /// <param name="nombre">nombre</param>
+        /// <param name="cantidadPaginas">cantidad de paginas</param>
+        /// <param name="idioma">idioma</param>
+        /// <param name="precio">precio</param>
+        /// <param name="stock">stock</param>
+        /// <param name="cantidadCapitulos">cantidad de capitulos</param>
         public Cuento(int id, string nombre, int cantidadPaginas, string idioma, float precio, int stock, int cantidadCapitulos) : base(id,nombre,cantidadPaginas,idioma,precio,stock)
         {
             this.cantidadCapitulos = cantidadCapitulos;

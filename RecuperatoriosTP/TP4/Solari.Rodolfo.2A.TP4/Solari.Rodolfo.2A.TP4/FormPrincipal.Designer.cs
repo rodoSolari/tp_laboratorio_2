@@ -46,7 +46,7 @@
             // dataGridViewLibros
             // 
             this.dataGridViewLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLibros.Location = new System.Drawing.Point(13, 175);
+            this.dataGridViewLibros.Location = new System.Drawing.Point(33, 175);
             this.dataGridViewLibros.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewLibros.Name = "dataGridViewLibros";
             this.dataGridViewLibros.Size = new System.Drawing.Size(820, 390);
@@ -119,7 +119,7 @@
             // btnRealizarCompra
             // 
             this.btnRealizarCompra.BackColor = System.Drawing.Color.GreenYellow;
-            this.btnRealizarCompra.Location = new System.Drawing.Point(934, 151);
+            this.btnRealizarCompra.Location = new System.Drawing.Point(970, 151);
             this.btnRealizarCompra.Name = "btnRealizarCompra";
             this.btnRealizarCompra.Size = new System.Drawing.Size(161, 70);
             this.btnRealizarCompra.TabIndex = 16;
@@ -131,7 +131,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(296, 23);
+            this.label1.Location = new System.Drawing.Point(640, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(213, 25);
             this.label1.TabIndex = 18;
@@ -139,12 +139,13 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(1127, 172);
+            this.btnLimpiar.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnLimpiar.Location = new System.Drawing.Point(1175, 153);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(125, 49);
+            this.btnLimpiar.Size = new System.Drawing.Size(154, 68);
             this.btnLimpiar.TabIndex = 19;
             this.btnLimpiar.Text = "Deshacer cambios";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // pictureBoxImagenes
@@ -176,7 +177,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Libreria de idiomas";
             this.Load += new System.EventHandler(this.FormLibros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLibros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImagenes)).EndInit();

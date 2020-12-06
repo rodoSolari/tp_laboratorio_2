@@ -128,6 +128,7 @@
             // 
             // cmbIidiomas
             // 
+            this.cmbIidiomas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIidiomas.FormattingEnabled = true;
             this.cmbIidiomas.Items.AddRange(new object[] {
             "Ingles",
@@ -216,7 +217,8 @@
             this.cmbTipoDiccionario.FormattingEnabled = true;
             this.cmbTipoDiccionario.Items.AddRange(new object[] {
             "Enciclopedia",
-            "Visual"});
+            "Visual",
+            "Tecnico"});
             this.cmbTipoDiccionario.Location = new System.Drawing.Point(231, 305);
             this.cmbTipoDiccionario.Name = "cmbTipoDiccionario";
             this.cmbTipoDiccionario.Size = new System.Drawing.Size(121, 21);

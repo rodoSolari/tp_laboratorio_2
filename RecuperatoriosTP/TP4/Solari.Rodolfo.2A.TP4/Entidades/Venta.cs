@@ -11,7 +11,7 @@ namespace Entidades
         #region Atributos
         private Libro libro;
         private int cantidad;
-        private int precioFinal;
+        private double precioFinal;
         private bool efectivo;
         #endregion
 
@@ -82,7 +82,7 @@ namespace Entidades
         /// <summary>
         /// Propiedad lectura y escritura precio final
         /// </summary>
-        public int PrecioFinal
+        public double PrecioFinal
         {
             get
             {
@@ -93,13 +93,15 @@ namespace Entidades
                 this.precioFinal = value;
             }
         }
+
         #endregion
 
         #region Metodos
         /// <summary>
         /// Realiza la venta, descontando el stock del libro y realizando el precio final de la venta
         /// </summary>
-        /// <param name="cantidad"></param>
+        /// <param name="libro">libro</param>
+        /// <param name="cantidad">cantidad</param>
         public void Vender(Libro libro,int cantidad)
         {
             this.cantidad = cantidad;
@@ -107,13 +109,19 @@ namespace Entidades
             this.precioFinal = cantidad * (int)libro.Precio;
             if (this.efectivo)
             {
-                this.precioFinal -= (this.precioFinal/10);
+                this.precioFinal -= (this.precioFinal * 0.1);
             }
         }
 
+        public int devolverStockActualLibro()
+        {
+            return this.libro.Stock - this.cantidad;
+        }
+
         /// <summary>
-        /// Devuelve el descuento del cliente
+        /// Devuelve un string que indica si paga o no en efectivo
         /// </summary>
+        /// <param name="efectivo"> efectivo </param>
         /// <returns></returns>
         public string pagaEnEfectivo(bool efectivo)
         {
@@ -128,6 +136,7 @@ namespace Entidades
         /// <summary>
         /// Devuelve la informacion de la venta
         /// </summary>
+        /// <param name="l">libro</param>
         /// <returns></returns>
         public string DevolverInformacionVenta(Libro l)
         {
@@ -135,8 +144,8 @@ namespace Entidades
             strVenta.AppendLine(l.devolverInformacionLibro());
             strVenta.AppendFormat("Cantidad : {0}\n", this.cantidad);
             strVenta.AppendFormat("Paga en efectivo? {0}\n", this.pagaEnEfectivo(this.efectivo));
-            strVenta.AppendFormat("Importe a pagar : ${0}\n", this.precioFinal);
-            strVenta.AppendLine("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            strVenta.AppendFormat("Importe a pagar : $ {0:0.00}\n", this.precioFinal);
+            strVenta.AppendLine("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
             return strVenta.ToString();
         }
 

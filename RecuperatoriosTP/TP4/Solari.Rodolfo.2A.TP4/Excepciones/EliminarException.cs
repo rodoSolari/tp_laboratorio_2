@@ -8,7 +8,7 @@ namespace Excepciones
 {
     public class EliminarException : Exception
     {
-        public EliminarException() : base("No se pudo eliminar el libro marcado")
+        public EliminarException() : base("No se pudo eliminar el libro seleccionado")
         {
 
         }
